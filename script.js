@@ -1,4 +1,8 @@
-var map = L.map("map").setView([24.969748513353736, 121.26744248398677], 17);
+// var map = L.map("map").setView([24.969748513353736, 121.26744248398677], 17);
+var map = L.map("map", {
+	center: [24.969748513353736, 121.26744248398677],
+	zoom: 17,
+});
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 	maxZoom: 19,
 	attribution:
@@ -15,10 +19,12 @@ L.marker([24.969748513353736, 121.26744248398677], {
 		iconSize: [20, 20],
 		iconAnchor: [10, 20], // anchor when zooming in/out. lat of anchor is half of the icon size lat (it's horizontal).
 		// long of anchor is same
-		popupAnchor: [-3, -76],
+		popupAnchor: [0, -20],
 	}),
 	alt: "non-recyclable", // if the image fail to show up
-}).addTo(map);
+})
+	.addTo(map)
+	.bindPopup("sup!");
 
 // adding second marker
 L.marker([24.969338143170532, 121.26753221658362], {
@@ -30,7 +36,7 @@ L.marker([24.969338143170532, 121.26753221658362], {
 		iconSize: [23, 23],
 		iconAnchor: [10, 23], // anchor when zooming in/out. lat of anchor is half of the icon size lat (it's horizontal).
 		// long of anchor is same
-		popupAnchor: [-3, -76],
+		popupAnchor: [0, -20],
 	}),
 	alt: "recyclable", // if the image fail to show up
 }).addTo(map);
