@@ -10,11 +10,22 @@ var map = L.map("map", {
 	maxBounds: bound, // option to set bounds.
 });
 
-L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+/*L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 	maxZoom: 19,
 	attribution:
 		'&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-}).addTo(map);
+}).addTo(map); */
+
+L.tileLayer(
+	"https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.{ext}",
+	{
+		minZoom: 17,
+		maxZoom: 20,
+		attribution:
+			'&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+		ext: "png",
+	}
+).addTo(map);
 
 // creating icon variable
 var nonRecyclableIcon = L.icon({
@@ -32,18 +43,34 @@ var recyclableIcon = L.icon({
 	popupAnchor: [0, -20],
 });
 
-// creatin pop ups variable
+// creating picture variable for pop up
+var nonReyclableImg =
+	'<img src="images/trash.png" height="50px" width="50px"/>';
+var ReyclableImg =
+	'<img src="images/recycle-bin.png" height="50px" width="50px"/>';
+
+// creating pop ups variable
 var nonRecyclablePopUp = L.popup({
 	maxWidth: 300, // this is default value, I added this just to be more consice
 	maxHeight: 300, // not a default value, if content exceed height, it will be scrollable
 	closeButton: true,
-	content: "THIS IS A NON RECYCLABLE BIN",
+	content:
+		"<center>THIS IS A NON RECYCLABLE BIN</center>" +
+		"</br>" +
+		"<center>" +
+		nonReyclableImg +
+		"</center>",
 });
 var RecyclablePopUp = L.popup({
 	maxWidth: 300, // this is default value, I added this just to be more consice
 	maxHeight: 300, // not a default value, if content exceed height, it will be scrollable
 	closeButton: true, // default value
-	content: "THIS IS A RECYCLABLE BIN",
+	content:
+		"<center>THIS IS A RECYCLABLE BIN</center>" +
+		"</br>" +
+		"<center>" +
+		ReyclableImg +
+		"</center>",
 });
 
 // adding first marker
