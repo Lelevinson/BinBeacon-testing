@@ -1,8 +1,8 @@
 // var map = L.map("map").setView([24.969748513353736, 121.26744248398677], 17);
 var bound1 = L.latLng(24.972762287952364, 121.25814465016538),
 	bound2 = L.latLng(24.964661062164637, 121.27052218810468),
-	bound = L.latLngBounds(bound1, bound2); // to set the bounds of the map to only NEILI. 
-											// If user tries to go out of the bounds, it will bounce back
+	bound = L.latLngBounds(bound1, bound2); // to set the bounds of the map to only NEILI.
+// If user tries to go out of the bounds, it will bounce back
 
 var map = L.map("map", {
 	center: [24.969748513353736, 121.26744248398677],
@@ -32,6 +32,20 @@ var recyclableIcon = L.icon({
 	popupAnchor: [0, -20],
 });
 
+// creatin pop ups variable
+var nonRecyclablePopUp = L.popup({
+	maxWidth: 300, // this is default value, I added this just to be more consice
+	maxHeight: 300, // not a default value, if content exceed height, it will be scrollable
+	closeButton: true,
+	content: "THIS IS A NON RECYCLABLE BIN",
+});
+var RecyclablePopUp = L.popup({
+	maxWidth: 300, // this is default value, I added this just to be more consice
+	maxHeight: 300, // not a default value, if content exceed height, it will be scrollable
+	closeButton: true, // default value
+	content: "THIS IS A RECYCLABLE BIN",
+});
+
 // adding first marker
 var firstMarkerCoor = L.latLng(24.969748513353736, 121.26744248398677);
 L.marker(firstMarkerCoor, {
@@ -42,10 +56,11 @@ L.marker(firstMarkerCoor, {
 	riseOnHover: true, // if 2 or more trash bin coordinate is close, then the one cursor hover will be on top
 })
 	.addTo(map)
-	.bindPopup("sup!");
+	.bindPopup(nonRecyclablePopUp);
 
+// Dummy marker to show riseOnHover
 L.marker([24.9697419835568, 121.26746903771664], {
-	/* Dummy marker to show riseOnHover */ draggable: true,
+	draggable: true,
 	icon: L.icon({
 		iconUrl: "images/trash-can.png",
 		iconSize: [20, 20],
@@ -57,7 +72,7 @@ L.marker([24.9697419835568, 121.26746903771664], {
 	riseOnHover: true,
 })
 	.addTo(map)
-	.bindPopup("sup!");
+	.bindPopup(nonRecyclablePopUp);
 
 // adding second marker
 var secondMarkerCoor = L.latLng(24.969338143170532, 121.26753221658362);
@@ -66,4 +81,6 @@ L.marker(secondMarkerCoor, {
 	icon: recyclableIcon,
 	alt: "recyclable",
 	riseOnHover: true,
-}).addTo(map);
+})
+	.addTo(map)
+	.bindPopup(RecyclablePopUp);
