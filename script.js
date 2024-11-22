@@ -43,13 +43,13 @@ var recyclableIcon = L.icon({
 	popupAnchor: [0, -20],
 });
 
-// creating picture variable for pop up
+// creating picture var
 var nonReyclableImg =
 	'<img src="images/trash.png" height="50px" width="50px"/>';
 var ReyclableImg =
 	'<img src="images/recycle-bin.png" height="50px" width="50px"/>';
 
-// creating pop ups variable
+// creating pop up var
 var nonRecyclablePopUp = L.popup({
 	maxWidth: 300, // this is default value, I added this just to be more consice
 	maxHeight: 300, // not a default value, if content exceed height, it will be scrollable
@@ -73,9 +73,12 @@ var RecyclablePopUp = L.popup({
 		"</center>",
 });
 
-// adding first marker
+// creating coordinate var
 var firstMarkerCoor = L.latLng(24.969748513353736, 121.26744248398677);
-L.marker(firstMarkerCoor, {
+var secondMarkerCoor = L.latLng(24.969338143170532, 121.26753221658362);
+
+// adding first marker
+var nonRec_1 = L.marker(firstMarkerCoor, {
 	draggable: true,
 	icon: nonRecyclableIcon,
 	alt: "non-recyclable", // if the image fail to show up
@@ -85,25 +88,8 @@ L.marker(firstMarkerCoor, {
 	.addTo(map)
 	.bindPopup(nonRecyclablePopUp);
 
-// Dummy marker to show riseOnHover
-L.marker([24.9697419835568, 121.26746903771664], {
-	draggable: true,
-	icon: L.icon({
-		iconUrl: "images/trash-can.png",
-		iconSize: [20, 20],
-		iconAnchor: [10, 20],
-		popupAnchor: [0, -20],
-	}),
-	alt: "non-recyclable",
-	title: "first marker",
-	riseOnHover: true,
-})
-	.addTo(map)
-	.bindPopup(nonRecyclablePopUp);
-
 // adding second marker
-var secondMarkerCoor = L.latLng(24.969338143170532, 121.26753221658362);
-L.marker(secondMarkerCoor, {
+var rec_1 = L.marker(secondMarkerCoor, {
 	draggable: true,
 	icon: recyclableIcon,
 	alt: "recyclable",
