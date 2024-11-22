@@ -1,4 +1,3 @@
-// var map = L.map("map").setView([24.969748513353736, 121.26744248398677], 17);
 var bound1 = L.latLng(24.972762287952364, 121.25814465016538),
 	bound2 = L.latLng(24.964661062164637, 121.27052218810468),
 	bound = L.latLngBounds(bound1, bound2); // to set the bounds of the map to only NEILI.
@@ -73,10 +72,6 @@ var RecyclablePopUp = L.popup({
 		"</center>",
 });
 
-// creating coordinate var
-var firstMarkerCoor = L.latLng(24.969748513353736, 121.26744248398677);
-var secondMarkerCoor = L.latLng(24.969338143170532, 121.26753221658362);
-
 // creating geoJSON var for Recyclable and Non-Recyclable
 var geojson_Recyclable = {
 	type: "FeatureCollection",
@@ -121,3 +116,27 @@ var geojson_NonRecyclable = {
 		},
 	],
 };
+
+// recyclable geoJSON
+L.geoJSON(geojson_Recyclable, {
+	pointToLayer: function (geoJsonPoint, latlng) {
+		return L.marker(latlng, {
+			draggable: true,
+			icon: recyclableIcon,
+			alt: "recyclable", // if the image fail to show up
+			riseOnHover: true, // if 2 or more trash bin coordinate is close, then the one cursor hover will be on top
+		}).bindPopup(RecyclablePopUp);
+	},
+}).addTo(map);
+
+// non-recyclable geoJSON
+L.geoJSON(geojson_NonRecyclable, {
+	pointToLayer: function (geoJsonPoint, latlng) {
+		return L.marker(latlng, {
+			draggable: true,
+			icon: nonRecyclableIcon,
+			alt: "non-recyclable", // if the image fail to show up
+			riseOnHover: true, // if 2 or more trash bin coordinate is close, then the one cursor hover will be on top
+		}).bindPopup(nonRecyclablePopUp);
+	},
+}).addTo(map);
