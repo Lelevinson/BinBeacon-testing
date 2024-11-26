@@ -16,37 +16,45 @@ var osm = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 	attribution: "© OpenStreetMap",
 });
 
-var stadiaLight = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.{ext}', {
-	minZoom: 0,
-	maxZoom: 20,
-	attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-	ext: 'png'
-});
+var stadiaLight = L.tileLayer(
+	"https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.{ext}",
+	{
+		minZoom: 0,
+		maxZoom: 20,
+		attribution:
+			'&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+		ext: "png",
+	}
+);
 
-var stadiaDark = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.{ext}', {
-	minZoom: 0,
-	maxZoom: 20,
-	attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-	ext: 'png'
-});
+var stadiaDark = L.tileLayer(
+	"https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.{ext}",
+	{
+		minZoom: 0,
+		maxZoom: 20,
+		attribution:
+			'&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+		ext: "png",
+	}
+);
 
 // creating icon variable
 var nonRecyclableIcon = L.icon({
 	// this is for adding and styling icon
-	iconUrl: "images/pin marker.png",
-	iconSize: [20, 20],
+	iconUrl: "images/marker non-recyclable.png",
+	iconSize: [23, 23],
 	iconAnchor: [10, 20], // anchor when zooming in/out. lat of anchor is half of the icon size lat (it's horizontal).
 	// long of anchor is same
 	popupAnchor: [0, -20],
 });
 var recyclableIcon = L.icon({
-	iconUrl: "images/marker recyclable full.png",
+	iconUrl: "images/marker recyclable.png",
 	iconSize: [23, 23],
 	iconAnchor: [10, 23],
 	popupAnchor: [0, -20],
 });
 var recyclableAndNonIcon = L.icon({
-	iconUrl: "images/marker recyclable fusion.png",
+	iconUrl: "images/marker recyc and non-recyc.png",
 	iconSize: [23, 23],
 	iconAnchor: [10, 23],
 	popupAnchor: [0, -20],
@@ -54,11 +62,11 @@ var recyclableAndNonIcon = L.icon({
 
 // creating picture variable for pop up
 var nonReyclableImg =
-	'<img src="images/pin marker.png" height="50px" width="50px"/>';
+	'<img src="images/marker non-recyclable.png" height="50px" width="50px"/>';
 var ReyclableImg =
-	'<img src="images/marker recyclable full.png" height="50px" width="50px"/>';
+	'<img src="images/marker recyclable.png" height="50px" width="50px"/>';
 var RecAndNonImg =
-	'<img src="images/marker recyclable fusion.png" height="50px" width="50px"/>';
+	'<img src="images/marker recyc and non-recyc.png" height="50px" width="50px"/>';
 
 // creating pop ups variable
 var nonRecyclablePopUp = L.popup({
@@ -124,13 +132,12 @@ var rBin2 = L.marker(secondRecMarkerCoor, {
 }).bindPopup(RecyclablePopUp);
 
 var thirdRecMarkerCoor = L.latLng(24.97225761804693, 121.26255197265557);
-var rBin3 = L.marker(thirdRecMarkerCoor, { 
+var rBin3 = L.marker(thirdRecMarkerCoor, {
 	draggable: true,
 	icon: recyclableIcon,
 	alt: "recyclable",
 	riseOnHover: true,
 }).bindPopup(RecyclablePopUp);
-
 
 // adding Both rec and non marker
 var firstTwoMarkerCoor = L.latLng(24.96899644820178, 121.26751655050582);
@@ -160,7 +167,6 @@ var tBin3 = L.marker(thirdTwoMarkerCoor, {
 	riseOnHover: true, // if 2 or more trash bin coordinate is close, then the one cursor hover will be on top
 }).bindPopup(RecyclableAndNonPopUp);
 
-
 var recbins = L.layerGroup([rBin2, rBin3]);
 var norbins = L.layerGroup([nBin1, nBin2]);
 var twobins = L.layerGroup([tBin1, tBin2, tBin3]);
@@ -174,9 +180,9 @@ var map = L.map("map", {
 });
 
 var baseBins = {
-	"Standard": osm,
-	"Light": stadiaLight,
-	"Dark": stadiaDark,
+	Standard: osm,
+	Light: stadiaLight,
+	Dark: stadiaDark,
 };
 
 var overlayBins = {
