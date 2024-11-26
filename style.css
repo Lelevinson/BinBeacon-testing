@@ -7,46 +7,15 @@ body {
 body {
 	display: flex;
 	flex-direction: column;
+	background-color: #71bc78;
 }
 
 main {
 	flex: 1;
 }
 
-footer {
-	background-color: #f1f1f1; /* Optional: Add background color to footer */
-	text-align: center; /* Optional: Center the text in the footer */
-	padding: 10px; /* Optional: Add padding to the footer */
-}
-
-footer p {
-	margin: 0;
-	padding: 0; /* Optional: Remove default margin from paragraph */
-}
-
-header {
-	background-color: #81df83;
-	color: white;
-	padding: 0.5em;
-	text-align: center;
-	display: flex;
-	align-items: center; /* Align items vertically */
-	justify-content: center; /* Center items horizontally */
-}
-header img {
-	height: 50px; /* Adjust the height as needed */
-	margin-right: 10px; /* Space between the image and the text */
-}
-header h1 {
-	font-size: 2em;
-	margin: 0;
-	padding: 0;
-}
-
 #map {
-	height: 80%;
-	width: 80%;
-	margin: 47px auto;
-	border-color: chartreuse;
-	border-style: double;
+	height: 100%;
+	width: 100%;
+	/*cursor: url("images/paw.svg"), auto;*/
 }
