@@ -54,7 +54,7 @@ var recyclableIcon = L.icon({
 	popupAnchor: [0, -20],
 });
 var recyclableAndNonIcon = L.icon({
-	iconUrl: "images/marker recyc and non-recyc.png",
+	iconUrl: "images/twobin marker.png",
 	iconSize: [23, 23],
 	iconAnchor: [10, 23],
 	popupAnchor: [0, -20],
