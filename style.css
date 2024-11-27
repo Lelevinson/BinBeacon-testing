@@ -4,18 +4,29 @@ body {
 	margin: 0;
 }
 
-body {
-	display: flex;
-	flex-direction: column;
-}
-
-main {
-	flex: 1;
-}
-
 #map {
 	height: 100%;
 	width: 100%;
 	margin: 0;
+	z-index: 1;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-end;
 	/*cursor: url("images/paw.svg"), auto;*/
+}
+
+#reset-zoom-overlay {
+	position: absolute;
+	height: 8%;
+	width: 10%;
+	bottom: 0;
+	margin: 0;
+	padding: 0;
+	z-index: 1000;
+}
+
+#reset-zoom-button {
+	height: 90%;
+	width: 90%;
 }
