@@ -126,8 +126,8 @@ var stadiaLight = L.tileLayer(
 	{
 		minZoom: 0,
 		maxZoom: 20,
-		attribution:
-			'&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+		//attribution:
+		//'&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 		ext: "png",
 	}
 );
@@ -167,7 +167,11 @@ var map = L.map("map", {
 	maxBounds: bound, // option to set bounds.
 	layers: [stadiaLight, recbins, norbins, twobins],
 })
-	.locate({ watch: "true" })
+	.locate({
+		watch: "true",
+		enableHighAccuracy: "true",
+		timeout: 10000 /* in milisecond */,
+	}) // enabled user live location detection
 	.on("locationfound", (e) => {
 		if (!userMarker) {
 			userMarker = new L.marker(e.latlng, {
@@ -203,3 +207,10 @@ var overlayBins = {
 };
 
 var layerControl = L.control.layers(baseBins, overlayBins).addTo(map);
+
+// ------------------------------------------------------- OVERLAY BUTTON  -------------------------------------------------------
+
+var resetZoomButton = document.querySelector("#reset-zoom-button");
+resetZoomButton.addEventListener("click", function () {
+	map.setView([24.969748513353736, 121.26744248398677], 18);
+});
