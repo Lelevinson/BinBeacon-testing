@@ -165,7 +165,7 @@ var map = L.map("map", {
 	center: [24.969748513353736, 121.26744248398677],
 	zoom: 18,
 	maxBounds: bound, // option to set bounds.
-	layers: [stadiaLight, recbins, norbins, twobins],
+	layers: [osm, recbins, norbins, twobins],
 })
 	.locate({
 		watch: "true",
