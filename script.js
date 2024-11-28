@@ -110,8 +110,8 @@ class TwoBin {
 	);
 }
 
-var bound1 = L.latLng(24.972762287952364, 121.25814465016538),
-	bound2 = L.latLng(24.964661062164637, 121.27052218810468),
+var bound1 = L.latLng(24.962957038371627, 121.27488024265767),
+	bound2 = L.latLng(24.985034349532995, 121.2425501121096),
 	bound = L.latLngBounds(bound1, bound2); // to set the bounds of the map to only NEILI.
 // If user tries to go out of the bounds, it will bounce back
 
