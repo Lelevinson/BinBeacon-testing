@@ -1,216 +1,119 @@
-//	Classes of Bins
-class RecBin {
-	constructor(locationX, locationY, map) {
-		this.locationX = locationX;
-		this.locationY = locationY;
+/*Pixels (px):
 
-		this.marker = L.marker([this.locationX, this.locationY], {
-			icon: RecBin.recyclableIcon,
-			alt: "recyclable", // if the image fail to show up
-			title: "click to see bin status", // if hover cursor on marker, a browser tooltip will pop up
-			riseOnHover: true, // if 2 or more trash bin coordinate is close, then the one cursor hover will be on top
-		}).bindPopup(RecBin.recyclablePopUp);
-	}
+    Use case: Fixed-size elements like borders, icons, or small areas that don't need to adjust to screen size.
+    Why: px is an absolute unit, so it will always stay the same size regardless of screen size or zoom level.
+    Example: font-size: 16px;
 
-	static recyclableIcon = L.icon({
-		// this is for adding and styling icon
-		iconUrl: "images/marker recyclable.png",
-		iconSize: [37, 37],
-		iconAnchor: [18, 26], // anchor when zooming in/out. lat of anchor is half of the icon size lat (it's horizontal).
-		// long of anchor is same
-		popupAnchor: [0, -20],
-	});
+Relative Units (rem, em):
 
-	static recyclableImg =
-		'<img src="images/marker recyclable.png" height="50px" width="50px"/>';
+    rem (relative to the root element):
+        Use case: For scaling typography or spacing consistently across a page.
+        Why: rem is relative to the root <html> font size, so all sizes adjust proportionally. It’s easier to maintain a consistent design across various screen sizes.
+        Example: If the root font size is 16px, 2rem equals 32px.
+    em (relative to the parent element):
+        Use case: Used mainly for font sizes or spacing that depends on the parent element’s size.
+        Why: em scales based on the parent element, which can make components within larger containers grow/shrink accordingly.
+        Example: font-size: 1.5em; will be 1.5 times the size of the parent element’s font size.
 
-	static recyclablePopUp = L.popup({
-		maxWidth: 300, // this is default value, I added this just to be more consice
-		maxHeight: 300, // not a default value, if content exceed height, it will be scrollable
-		closeButton: true, // default value
-	}).setContent(
-		"<center>THIS IS A RECYCLABLE BIN</center>" +
-			"</br>" +
-			"<center>" +
-			RecBin.recyclableImg +
-			"</center>"
-	);
+Viewport Units (vw, vh):
+
+    Use case: Responsive layouts, especially for full-screen elements.
+    Why: vw is based on the width of the viewport (browser window), and vh is based on its height. This is great for responsive design where elements need to scale according to the screen size.
+    Example: width: 50vw; will make an element take up 50% of the viewport width.
+
+Percentage (%):
+
+    Use case: For flexible layouts where an element’s size needs to be relative to its parent container.
+    Why: Percentages are fluid and adapt to the size of the parent element, which is useful in responsive designs.
+    Example: width: 80%; makes the element take up 80% of its parent’s width.*/
+
+html,
+body {
+	height: 100%;
+	margin: 0;
 }
 
-class NorBin {
-	constructor(locationX, locationY, map) {
-		this.locationX = locationX;
-		this.locationY = locationY;
-
-		this.marker = L.marker([this.locationX, this.locationY], {
-			icon: NorBin.nonRecyclableIcon,
-			alt: "non-recyclable",
-			title: "click to see bin status",
-			riseOnHover: true,
-		}).bindPopup(NorBin.nonRecyclablePopUp);
-	}
-
-	static nonRecyclableIcon = L.icon({
-		iconUrl: "images/marker non-recyclable.png",
-		iconSize: [37, 37],
-		iconAnchor: [18, 26],
-		popupAnchor: [0, -20],
-	});
-
-	//	creating picture variable for pop up
-	static nonRecyclableImg =
-		'<img src="images/marker non-recyclable.png" height="50px" width="50px"/>';
-
-	static nonRecyclablePopUp = L.popup({
-		maxWidth: 300,
-		maxHeight: 300,
-		closeButton: true,
-	}).setContent(
-		"<center>THIS IS A NON RECYCLABLE BIN</center>" +
-			"</br>" +
-			"<center>" +
-			NorBin.nonRecyclableImg +
-			"</center>"
-	);
+#map {
+	/*flexbox css for child(s) element*/
+	display: flex;
+	justify-content: flex-evenly;
+	align-items: flex-end;
+	/*to make the map full screen*/
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	/*map will stay at most bottom layer*/
+	z-index: 0;
+	/*cursor: url("images/paw.svg"), auto;*/
 }
 
-class TwoBin {
-	constructor(locationX, locationY, map) {
-		this.locationX = locationX;
-		this.locationY = locationY;
+.bottom-layer {
+	position: fixed; /* Fixes the div to the viewport */
+	display: flex;
+	justify-content: center;
 
-		this.marker = L.marker([this.locationX, this.locationY], {
-			icon: TwoBin.recyclableAndNonIcon,
-			alt: "both non recyclable and recyclable",
-			title: "click to see bin status",
-			riseOnHover: true,
-		}).bindPopup(TwoBin.recyclableAndNonPopUp);
-	}
+	padding: 0;
+	bottom: 2%;
+	left: 0;
 
-	static recyclableAndNonIcon = L.icon({
-		iconUrl: "images/twobin marker.png",
-		iconSize: [37, 37],
-		iconAnchor: [18, 26],
-		popupAnchor: [0, -20],
-	});
+	height: auto;
+	width: 100%;
 
-	static recAndNonImg =
-		'<img src="images/twobin marker.png" height="50px" width="50px"/>';
-
-	static recyclableAndNonPopUp = L.popup({
-		maxWidth: 300,
-		maxHeight: 300,
-		closeButton: true,
-	}).setContent(
-		"<center>THESE ARE BOTH RECYCLABLE BIN AND NON RECYCLABLE BIN</center>" +
-			"</br>" +
-			"<center>" +
-			TwoBin.recAndNonImg +
-			"</center>"
-	);
+	z-index: 1000;
 }
 
-var bound1 = L.latLng(24.972762287952364, 121.25814465016538),
-	bound2 = L.latLng(24.964661062164637, 121.27052218810468),
-	bound = L.latLngBounds(bound1, bound2); // to set the bounds of the map to only NEILI.
-// If user tries to go out of the bounds, it will bounce back
+#button-overlay {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
-//	Selectable tile layers
-var osm = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-	maxZoom: 19,
-	attribution: "© OpenStreetMap",
-});
+	height: 4%;
+	width: 13%;
 
-var stadiaLight = L.tileLayer(
-	"https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.{ext}",
-	{
-		minZoom: 0,
-		maxZoom: 20,
-		//attribution:
-		//'&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-		ext: "png",
-	}
-);
+	margin: 0;
+	padding-bottom: 1em;
 
-var stadiaDark = L.tileLayer(
-	"https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.{ext}",
-	{
-		minZoom: 0,
-		maxZoom: 20,
-		attribution:
-			'&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-		ext: "png",
-	}
-);
+	bottom: 0;
+}
 
-//	manually adding markers to the map ( simpen semua data marker dalam list?)
-var rBin1 = new RecBin(24.969338143170532, 121.26753221658362, map);
-var rBin2 = new RecBin(24.97225761804693, 121.26255197265557, map);
+#name-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
-var nBin1 = new NorBin(24.971326971645514, 121.26284968643745, map);
-var nBin2 = new NorBin(24.968992734594863, 121.26273166933971, map);
+	min-height: 60%;
+	min-width: 60%;
 
-var tBin1 = new TwoBin(24.96930883179381, 121.26314472955846, map);
-var tBin2 = new TwoBin(24.968401873807974, 121.26756232771173, map);
-var tBin3 = new TwoBin(24.969619858509844, 121.26388423170528, map);
+	margin: 0;
+	padding: 5%;
 
-//	layer groups
-var recbins = L.layerGroup([rBin1.marker, rBin2.marker]);
-var norbins = L.layerGroup([nBin1.marker, nBin2.marker]);
-var twobins = L.layerGroup([tBin1.marker, tBin2.marker, tBin3.marker]);
+	background-color: rgb(246, 246, 246);
+	border-color: rgba(128, 128, 128, 0.3);
+	border-radius: 5px;
+}
+/* same with name-button*/
+#zoom-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
-//	map and user live location initiallization
-var userMarker;
-var map = L.map("map", {
-	center: [24.969748513353736, 121.26744248398677],
-	zoom: 18,
-	maxBounds: bound, // option to set bounds.
-	layers: [stadiaLight, recbins, norbins, twobins],
-})
-	.locate({
-		watch: "true",
-		enableHighAccuracy: "true",
-		timeout: 10000 /* in milisecond */,
-	}) // enabled user live location detection
-	.on("locationfound", (e) => {
-		if (!userMarker) {
-			userMarker = new L.marker(e.latlng, {
-				icon: L.icon({
-					iconUrl: "images/beacon-svgrepo-com.svg",
-					iconSize: [37, 37],
-				}),
-				alt: "user marker",
-				title: "you are here!",
-				riseOnHover: true,
-			}).addTo(this.map);
-		} else {
-			userMarker.setLatLng(e.latlng);
-		}
-	})
-	.on("locationerror", (error) => {
-		if (userMarker) {
-			map.removeLayer(userMarker);
-			userMarker = undefined;
-		}
-	});
+	min-height: 60%;
+	min-width: 60%;
 
-var baseBins = {
-	Standard: osm,
-	Light: stadiaLight,
-	Dark: stadiaDark,
-};
+	margin: 0;
+	padding: 5%;
 
-var overlayBins = {
-	"Recycling bins": recbins,
-	"Non-recycling bins": norbins,
-	"Pair of both": twobins,
-};
+	background-color: rgb(246, 246, 246);
+	border-color: rgba(128, 128, 128, 0.3);
+	border-radius: 5px;
+}
 
-var layerControl = L.control.layers(baseBins, overlayBins).addTo(map);
+#button-text {
+	margin: 0;
+	padding: 0;
 
-// ------------------------------------------------------- OVERLAY BUTTON  -------------------------------------------------------
-
-var resetZoomButton = document.querySelector("#reset-zoom-button");
-resetZoomButton.addEventListener("click", function () {
-	map.setView([24.969748513353736, 121.26744248398677], 18);
-});
+	font-size: 1em;
+	text-align: center;
+}
