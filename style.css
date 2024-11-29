@@ -115,7 +115,7 @@ body {
 	cursor: pointer;
 	color: #121212;
 	background-color: #fff;
-	box-shadow: transparent 0 0 0 3px, rgba(18, 18, 18, 0.1) 0 6px 20px;
+	box-shadow: transparent 0 0 0 3px, rgba(10, 216, 10, 0.1) 0 6px 20px;
 	outline: none;
 	border-radius: 10px;
 
@@ -128,7 +128,7 @@ body {
 }
 
 #name-button:hover {
-	box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
+	box-shadow: #07ee12 0 0 0 3px, transparent 0 0 0 0;
 }
 
 #zoom-button {
@@ -162,7 +162,7 @@ body {
 }
 
 #zoom-button:hover {
-	box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
+	box-shadow: #07ee12 0 0 0 3px, transparent 0 0 0 0;
 }
 
 #button-text {
