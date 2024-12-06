@@ -18,22 +18,38 @@
 		></script>
 	</head>
 	<body>
-		<div id="map">
-			<div class="bottom-layer">
-				<div class="button-overlay">
-					<button class="button-bar" data-action="template">
-						<p class="button-text">Template</p>
-					</button>
-				</div>
-				<div class="button-overlay">
-					<button class="button-bar" data-action="reset-zoom">
-						<p class="button-text">Reset Zoom</p>
-					</button>
-				</div>
-				<div class="button-overlay">
-					<button class="button-bar" data-action="template">
-						<p class="button-text">Template</p>
-					</button>
+		<div id="mySidenav" class="sidenav">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+				>&times;</a
+			>
+			<a href="#">About</a>
+			<a href="#">Services</a>
+			<a href="#">Clients</a>
+			<a href="#">Contact</a>
+		</div>
+		<!-- Use any element to open the sidenav -->
+		<div id="header">
+			<p class="header-text" onclick="openNav()">open</p>
+		</div>
+
+		<div id="main">
+			<div id="map">
+				<div class="bottom-layer">
+					<div class="button-overlay">
+						<button class="button-bar" data-action="template">
+							<p class="button-text">Template</p>
+						</button>
+					</div>
+					<div class="button-overlay">
+						<button class="button-bar" data-action="reset-zoom">
+							<p class="button-text">Reset Zoom</p>
+						</button>
+					</div>
+					<div class="button-overlay">
+						<button class="button-bar" data-action="template">
+							<p class="button-text">Template</p>
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>
