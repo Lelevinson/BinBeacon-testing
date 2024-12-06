@@ -163,9 +163,9 @@ var twobins = L.layerGroup([tBin1.marker, tBin2.marker, tBin3.marker]);
 var userMarker;
 var map = L.map("map", {
 	center: [24.969748513353736, 121.26744248398677],
-	zoom: 18,
-	maxBounds: bound, // option to set bounds.
+	zoom: 16,
 	zoomControl: false, // remove + - button for zoom
+	maxBounds: bound, // option to set bounds.
 	layers: [osm, recbins, norbins, twobins],
 })
 	.locate({
@@ -223,4 +223,16 @@ for (let i = 0; i < buttons.length; i++) {
 			map.setView([24.969748513353736, 121.26744248398677], 18);
 		});
 	}
+}
+
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+function openNav() {
+	document.getElementById("mySidenav").style.width = "250px";
+	document.getElementById("main").style.marginLeft = "250px";
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+function closeNav() {
+	document.getElementById("mySidenav").style.width = "0";
+	document.getElementById("main").style.marginLeft = "0";
 }
