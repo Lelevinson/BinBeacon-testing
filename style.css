@@ -38,6 +38,7 @@ Percentage (%):
 html,
 body {
 	height: 100%;
+	overflow: hidden; /* disable horizontal and vertical*/
 	font-family: "Raleway", sans-serif;
 }
 
@@ -45,14 +46,18 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 3em;
+
+	height: 4em;
 	width: 100%;
-	border-style: dashed;
-	border-color: black;
+	background-color: hsla(129, 69%, 53%, 0.87);
 }
 
 .header-text {
 	position: fixed;
+}
+
+#logo-layer {
+	border-radius: 50%;
 }
 
 #main {
@@ -169,8 +174,8 @@ body {
 	z-index: 1; /* Stay on top */
 	top: 0;
 	left: 0;
-	background-color: #111;
-	overflow-x: hidden; /* Disable horizontal scroll */
+	background-color: hsl(129, 16%, 98%);
+	overflow-x: hidden; /* disable horizontal scroll */
 	padding-top: 60px;
 	transition: 0.5s;
 }
