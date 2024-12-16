@@ -211,11 +211,6 @@ var layerControl = L.control.layers(baseBins, overlayBins).addTo(map);
 
 // ------------------------------------------------------- OVERLAY BUTTON  -------------------------------------------------------
 
-/*var resetZoomButton = document.querySelector(".zoom-button");
-resetZoomButton.addEventListener("click", function () {
-	map.setView([24.969748513353736, 121.26744248398677], 18);
-}); */
-
 const buttons = document.querySelectorAll(".button-bar");
 for (let i = 0; i < buttons.length; i++) {
 	if (buttons[i].getAttribute("data-action") === "reset-zoom") {
@@ -227,12 +222,12 @@ for (let i = 0; i < buttons.length; i++) {
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 function openNav() {
-	document.getElementById("mySidenav").style.width = "250px";
-	document.getElementById("main").style.marginLeft = "250px";
+	document.getElementById("mySidenav").style.height = "250px";
+	document.getElementById("main").style.marginBottom = "250px";
 }
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
 function closeNav() {
-	document.getElementById("mySidenav").style.width = "0";
-	document.getElementById("main").style.marginLeft = "0";
+	document.getElementById("mySidenav").style.height = "0";
+	document.getElementById("main").style.marginBottom = "0";
 }
