@@ -161,6 +161,7 @@ var twobins = L.layerGroup([tBin1.marker, tBin2.marker, tBin3.marker]);
 
 //	map and user live location initiallization
 var userMarker;
+var userLatLng; // to record lat and lng value of user live location
 var map = L.map("map", {
 	center: [24.969748513353736, 121.26744248398677],
 	zoom: 16,
@@ -174,6 +175,7 @@ var map = L.map("map", {
 		timeout: 10000 /* in milisecond */,
 	}) // enabled user live location detection
 	.on("locationfound", (e) => {
+		userLatLng = e.latlng; // e is an object created when "locationfound" event is triggered, and contains informations about locationEvent like latlng
 		if (!userMarker) {
 			userMarker = new L.marker(e.latlng, {
 				icon: L.icon({
@@ -215,7 +217,7 @@ const buttons = document.querySelectorAll(".button-bar");
 for (let i = 0; i < buttons.length; i++) {
 	if (buttons[i].getAttribute("data-action") === "reset-zoom") {
 		buttons[i].addEventListener("click", function () {
-			map.setView([24.969748513353736, 121.26744248398677], 18);
+			map.setView([userLatLng.lat, userLatLng.lng], 18);
 		});
 	}
 }
