@@ -7,11 +7,11 @@ const port = 3000;
 
 app.use(cors());
 
-app.get('/get-markers', async (req, res) => {
+app.get('/', async (req, res) => {
   const coords = await gettingCoords();
   res.json(coords);
 });
 
 app.listen(port, () => {
-  console.log('running server at localhost:', port);
+  console.log('running server on port:', port);
 });
