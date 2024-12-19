@@ -80,7 +80,7 @@ let databaseArr = [];
 //	Fetching data from the server
 async function fetchCoords(){
 	try{
-		const response = await fetch("http://localhost:3000/get-markers")
+		const response = await fetch("https://binbeacon.onrender.com")
 
 		if(!response.ok){
 			throw new Error("Failed to get coords")
