@@ -46,7 +46,7 @@ var map = L.map("map", {
 	.locate({
 		watch: "true",
 		enableHighAccuracy: "true",
-		timeout: 120000 /* in milisecond */,
+		// timeout: 120000 /* in milisecond */,
 	}) // enabled user live location detection
 	.on("locationfound", (e) => {
 		userLatLng = e.latlng; // e is an object created when "locationfound" event is triggered, and contains informations about locationEvent like latlng
