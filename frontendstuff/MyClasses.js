@@ -82,7 +82,7 @@ export class TwoBin {
 
 		this.marker = L.marker([this.locationX, this.locationY], {
 			icon: TwoBin.recyclableAndNonIcon,
-			alt: "/frontendstuff/both non recyclable and recyclable",
+			alt: "both non recyclable and recyclable",
 			title: "click to see bin status",
 			riseOnHover: true,
 		}).bindPopup(TwoBin.recyclableAndNonPopUp);
