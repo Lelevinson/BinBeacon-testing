@@ -1,4 +1,4 @@
-import {RecBin, TwoBin, NorBin} from './MyClasses.js'
+import { RecBin, TwoBin, NorBin } from "./MyClasses.js";
 
 var bound1 = L.latLng(24.962957038371627, 121.27488024265767),
 	bound2 = L.latLng(24.985034349532995, 121.2425501121096),
@@ -59,7 +59,7 @@ var map = L.map("map", {
 				alt: "user marker",
 				title: "you are here!",
 				riseOnHover: true,
-			}).addTo(this.map);
+			}).addTo(map);
 		} else {
 			userMarker.setLatLng(e.latlng);
 		}
@@ -78,54 +78,48 @@ var twoBinsArr = [];
 let databaseArr = [];
 
 //	Fetching data from the server
-async function fetchCoords(){
-	try{
-		const response = await fetch("https://binbeacon.onrender.com")
+async function fetchCoords() {
+	try {
+		const response = await fetch("https://binbeacon.onrender.com");
 
-		if(!response.ok){
-			throw new Error("Failed to get coords")
+		if (!response.ok) {
+			throw new Error("Failed to get coords");
 		}
 
 		const data = await response.json();
 		databaseArr = data;
 		console.log(databaseArr);
-
-	}
-	catch(error){
-		console.error(error)
+	} catch (error) {
+		console.error(error);
 	}
 }
 fetchCoords();
 
 //	Making and adding markers to the map
 async function sort() {
-    await fetchCoords(); 
-    console.log("done fetching from fetchCoords:", databaseArr[0].bintype);
+	await fetchCoords();
+	console.log("done fetching from fetchCoords:", databaseArr[0].bintype);
 
-    for(let i = 0; i < databaseArr.length; i++){	
-		if(databaseArr[i].bintype === "Rec"){
-			var rBin = new RecBin(databaseArr[i].corx, databaseArr[i].cory, map)
-			recBinsArr.push(rBin.marker)
+	for (let i = 0; i < databaseArr.length; i++) {
+		if (databaseArr[i].bintype === "Rec") {
+			var rBin = new RecBin(databaseArr[i].corx, databaseArr[i].cory, map);
+			recBinsArr.push(rBin.marker);
+		} else if (databaseArr[i].bintype === "Two") {
+			var tBin = new TwoBin(databaseArr[i].corx, databaseArr[i].cory, map);
+			twoBinsArr.push(tBin.marker);
+		} else {
+			var nBin = new NorBin(databaseArr[i].corx, databaseArr[i].cory, map);
+			norBinsArr.push(nBin.marker);
 		}
+	}
 
-		else if(databaseArr[i].bintype === "Two"){
-			var tBin = new TwoBin(databaseArr[i].corx, databaseArr[i].cory, map)
-			twoBinsArr.push(tBin.marker)
-		}
-
-		else{
-			var nBin = new NorBin(databaseArr[i].corx, databaseArr[i].cory, map)
-			norBinsArr.push(nBin.marker) 
-		}
-	} 
-	
-	console.log("result =", twoBinsArr)
+	console.log("result =", twoBinsArr);
 	//	layer groups
 	var recbins = L.layerGroup(recBinsArr);
 	var norbins = L.layerGroup(norBinsArr);
 	var twobins = L.layerGroup(twoBinsArr);
 
-	twobins.addTo(map)
+	twobins.addTo(map);
 
 	var baseBins = {
 		Standard: osm,
@@ -141,7 +135,7 @@ async function sort() {
 
 	var layerControl = L.control.layers(baseBins, overlayBins).addTo(map);
 }
-sort() 
+sort();
 
 // ------------------------------------------------------- OVERLAY BUTTON  -------------------------------------------------------
 
