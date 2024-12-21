@@ -60,7 +60,7 @@ export class NorBin {
 
 	//	creating picture variable for pop up
 	static nonRecyclableImg =
-		'<img src="/frontendstuff/mages/marker non-recyclable.png" height="50px" width="50px"/>';
+		'<img src="/frontendstuff/images/marker non-recyclable.png" height="50px" width="50px"/>';
 
 	static nonRecyclablePopUp = L.popup({
 		maxWidth: 300,
@@ -96,7 +96,7 @@ export class TwoBin {
 	});
 
 	static recAndNonImg =
-		'<img src="images/twobin marker.png" height="50px" width="50px"/>';
+		'<img src="/frontendstuff/images/twobin marker.png" height="50px" width="50px"/>';
 
 	static recyclableAndNonPopUp = L.popup({
 		maxWidth: 300,
