@@ -17,7 +17,7 @@ export class RecBin {
 		// this is for adding and styling icon
 		iconUrl: "/frontendstuff/images/marker recyclable.png",
 		iconSize: [37, 37],
-		iconAnchor: [18, 26], // anchor when zooming in/out. lat of anchor is half of the icon size lat (it's horizontal).
+		iconAnchor: [19, 26], // anchor when zooming in/out. lat of anchor is half of the icon size lat (it's horizontal).
 		// long of anchor is same
 		popupAnchor: [0, -20],
 	});
@@ -54,7 +54,7 @@ export class NorBin {
 	static nonRecyclableIcon = L.icon({
 		iconUrl: "/frontendstuff/images/marker non-recyclable.png",
 		iconSize: [37, 37],
-		iconAnchor: [18, 26],
+		iconAnchor: [19, 26],
 		popupAnchor: [0, -20],
 	});
 
@@ -91,7 +91,7 @@ export class TwoBin {
 	static recyclableAndNonIcon = L.icon({
 		iconUrl: "/frontendstuff/images/twobin marker.png",
 		iconSize: [37, 37],
-		iconAnchor: [18, 26],
+		iconAnchor: [19, 26],
 		popupAnchor: [0, -20],
 	});
 

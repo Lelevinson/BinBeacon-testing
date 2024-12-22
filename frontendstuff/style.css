@@ -76,10 +76,6 @@ body {
 	color: hsla(41, 84%, 26%, 1);
 }
 
-#logo-layer {
-	border-radius: 50%;
-}
-
 #main {
 	transition: margin-bottom 0.5s;
 	height: 90%;
