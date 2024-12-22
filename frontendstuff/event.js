@@ -1,13 +1,3 @@
-// ------------------------------------------------------- OVERLAY BUTTON  -------------------------------------------------------
-const buttons = document.querySelectorAll(".button-bar");
-for (let i = 0; i < buttons.length; i++) {
-	if (buttons[i].getAttribute("data-action") === "reset-zoom") {
-		buttons[i].addEventListener("click", function () {
-			map.setView([userLatLng.lat, userLatLng.lng], 18);
-		});
-	}
-}
-
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 function openNav() {
 	document.getElementById("mySidenav").style.height = "250px";

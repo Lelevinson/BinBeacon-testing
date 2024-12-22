@@ -28,6 +28,7 @@ Percentage (%):
     Example: width: 80%; makes the element take up 80% of its parent’s width.*/
 
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,600;1,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chewy&display=swap");
 
 * {
 	box-sizing: border-box; /* border, margin, padding will all be count inside the value of height and width*/
@@ -39,7 +40,7 @@ Percentage (%):
 html,
 body {
 	height: 100%;
-	font-family: "Raleway", sans-serif;
+	font-family: "Raleway", "Chewy", sans-serif;
 	overflow: hidden;
 }
 
@@ -47,19 +48,32 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	gap: 1em;
 
-	height: 8%;
+	height: 10%;
 	width: 100%;
 	background-color: hsla(129, 69%, 53%, 0.87);
 }
 
+.header-image {
+	width: 2.8em;
+	height: 2.8em;
+	margin: 0;
+}
+
 .header-text {
-	position: fixed;
+	flex-grow: 0;
+	flex-shrink: 0;
+	flex-basis: 1;
+
 	cursor: pointer;
+	font-family: "Chewy", sans-serif;
+	font-size: 2.9em;
+	color: hsla(70, 100%, 49%, 1);
 }
 
 .header-text:active {
-	color: hsla(129, 69%, 53%, 0.87);
+	color: hsla(41, 84%, 26%, 1);
 }
 
 #logo-layer {
@@ -68,7 +82,7 @@ body {
 
 #main {
 	transition: margin-bottom 0.5s;
-	height: 92%;
+	height: 90%;
 	width: 100%;
 }
 
