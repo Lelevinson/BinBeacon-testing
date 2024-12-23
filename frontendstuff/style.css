@@ -35,6 +35,12 @@ Percentage (%):
 	margin: 0;
 	padding: 0;
 	user-select: none !important; /* to disable text-selection, so the '|' will stop blinking in text */
+	-webkit-tap-highlight-color: transparent; /* Remove blue highlight on touch selection */
+}
+
+/* Remove blue highlight when focusing on elements */
+*:focus {
+	outline: none;
 }
 
 html,
