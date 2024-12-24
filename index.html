@@ -1,51 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Welcome to Bin Beacon!</title>
-		<link
-			rel="stylesheet"
-			href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-			integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-			crossorigin=""
-		/>
-		<link rel="stylesheet" href="frontendstuff/style.css" />
-		<!--<link rel="stylesheet" href="frontendstuff/style.css" />-->
-		<script
-			src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-			integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-			crossorigin=""
-		></script>
-		<!--added supabase script here-->
-		<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.0.0/dist/umd/supabase.min.js"></script>
-		<!--remove GET favicon error in console-->
-		<link rel="shortcut icon" href="#" />
-	</head>
-	<body>
-		<div id="mySidenav" class="sidenav">
-			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
-				>&times;</a
-			>
-			<a href="#">About</a>
-			<a href="#">Services</a>
-			<a href="#">Clients</a>
-			<a href="#">Contact</a>
-		</div>
-		<!-- Use any element to open the sidenav -->
-		<div id="header">
-			<img
-				src="frontendstuff/images/lighthouse-svgrepo-com.svg"
-				class="header-image"
-			/>
-			<p class="header-text" onclick="openNav()">Bin Beacon</p>
-		</div>
-		<div id="main">
-			<div id="map">
-				<div class="bottom-layer">
-					<div id="btn-add" class="btn"></div>
-					<div id="btn-reset" class="btn"></div>
-					<!--<div class="button-overlay">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to Bin Beacon!</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="frontendstuff/style.css" />
+  <!--<link rel="stylesheet" href="frontendstuff/style.css" />-->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <!--added supabase script here-->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.0.0/dist/umd/supabase.min.js"></script>
+  <!--remove GET favicon error in console-->
+  <link rel="shortcut icon" href="#" />
+</head>
+
+<body>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+  </div>
+  <!-- Use any element to open the sidenav -->
+  <div id="header">
+    <img src="frontendstuff/images/lighthouse-svgrepo-com.svg" class="header-image" />
+    <p class="header-text" onclick="openNav()">Bin Beacon</p>
+  </div>
+  <div id="main">
+    <div id="map">
+      <div class="bottom-layer">
+        <div id="btn-add" class="btn"></div>
+        <div id="btn-reset" class="btn"></div>
+        <div id="btn-quest" class="btn"></div>
+        <!--<div class="button-overlay">
 						<button class="button-bar" data-action="template">
 							<p class="button-text">Template</p>
 						</button>
@@ -60,11 +49,12 @@
 							<p class="button-text">Template</p>
 						</button>
 					</div>-->
-				</div>
-			</div>
-		</div>
-		<!--diganti dari <script src="script.js"></script> -tambahin module biar bisa pake fungsi import export-->
-		<script type="module" src="frontendstuff/script.js"></script>
-		<script src="frontendstuff/event.js"></script>
-	</body>
+      </div>
+    </div>
+  </div>
+  <!--diganti dari <script src="script.js"></script> -tambahin module biar bisa pake fungsi import export-->
+  <script type="module" src="frontendstuff/script.js"></script>
+  <script src="frontendstuff/event.js"></script>
+</body>
+
 </html>
