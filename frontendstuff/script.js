@@ -24,6 +24,7 @@ async function fetchAPI(){
 	}
 }
 fetchAPI();
+
  
 //	map and user live location initiallization
 var userMarker;

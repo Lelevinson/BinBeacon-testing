@@ -73,4 +73,4 @@ const addingMarkersTDB = async (x, y, tipe, nama) => { //sendcurrentloc
 	} catch(error){
     console.log(error); 
     }
-}
+} 
