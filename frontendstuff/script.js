@@ -138,7 +138,7 @@ async function sort() {
 sort();
 
 // ------------------------------------------------------- OVERLAY BUTTON  -------------------------------------------------------
-const buttons = document.querySelectorAll(".button-bar");
+const buttons = document.querySelectorAll(".btn");
 for (let i = 0; i < buttons.length; i++) {
 	if (buttons[i].getAttribute("data-action") === "reset-zoom") {
 		buttons[i].addEventListener("click", function () {

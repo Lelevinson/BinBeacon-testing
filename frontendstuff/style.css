@@ -156,11 +156,18 @@ width: 5em; */
 	margin-top: 2.5em;
 	margin-left: 0.4em;
 	margin-bottom: 0.75em;
+	/* Make sure the cursor is a pointer, not text */
+	cursor: pointer;
 }
 
 .info-image {
-	height: 85%;
-	width: 85%;
+	height: 80%;
+	width: 80%;
+}
+
+.add-image {
+	height: 83%;
+	width: 83%;
 }
 
 .location-image {
