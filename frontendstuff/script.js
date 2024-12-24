@@ -11,33 +11,26 @@ var osm = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 	attribution: "© OpenStreetMap",
 });
 
-var stadiaLight = L.tileLayer(
-	"https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.{ext}",
-	{
-		minZoom: 0,
-		maxZoom: 20,
-		//attribution:
-		//'&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-		ext: "png",
+var stadiapi;
+async function fetchAPI(){
+	try{
+		//const response = await fetch('http://localhost:5500/configsta') // jadi karena port itu 5500 dia malah ke config situ, bukan ke port 3000. `${backendBaseURL}/config`
+		const response = await fetch('https://binbeacon.onrender.com/configsta')
+		const data = await response.json();
+		//backendURL = data.port;
+		stadiapi = data
+	} catch(error){
+    console.error('Error fetching configuration:', error);
 	}
-);
-
-var stadiaDark = L.tileLayer(
-	"https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.{ext}",
-	{
-		minZoom: 0,
-		maxZoom: 20,
-		attribution:
-			'&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-		ext: "png",
-	}
-);
+}
+fetchAPI();
+ 
 
 //	map and user live location initiallization
 var userMarker;
 var userLatLng; // to record lat and lng value of user live location
 var map = L.map("map", {
-	center: [24.969748513353736, 121.26744248398677],
+	center: [24.97002566166282, 121.26446449672198], // mnurut gw mendingan sini. ori 24.969748513353736, 121.26744248398677
 	zoom: 16,
 	zoomControl: false, // remove + - button for zoom
 	maxBounds: bound, // option to set bounds.
@@ -80,7 +73,8 @@ let databaseArr = [];
 //	Fetching data from the server
 async function fetchCoords() {
 	try {
-		const response = await fetch("https://binbeacon.onrender.com");
+		//const response = await fetch('http://localhost:5500/ambil-marker');
+		const response = await fetch('https://binbeacon.onrender.com/ambil-marker');
 
 		if (!response.ok) {
 			throw new Error("Failed to get coords");
@@ -98,6 +92,7 @@ fetchCoords();
 //	Making and adding markers to the map
 async function sort() {
 	await fetchCoords();
+	await fetchAPI();
 	console.log("done fetching from fetchCoords:", databaseArr[0].bintype);
 
 	for (let i = 0; i < databaseArr.length; i++) {
@@ -121,6 +116,24 @@ async function sort() {
 
 	twobins.addTo(map);
 
+	var stadiaLight = L.tileLayer(
+		`https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.{ext}?api_key=${stadiapi}`,
+		{
+			minZoom: 0,
+			maxZoom: 20,
+			ext: "png", //removed attributions
+		}
+	);
+	
+	var stadiaDark = L.tileLayer(
+		`https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.{ext}?api_key=${stadiapi}`,
+		{
+			minZoom: 0,
+			maxZoom: 20,
+			ext: "png", //removed attributions
+		}
+	);
+
 	var baseBins = {
 		Standard: osm,
 		Light: stadiaLight,
@@ -136,6 +149,31 @@ async function sort() {
 	var layerControl = L.control.layers(baseBins, overlayBins).addTo(map);
 }
 sort();
+
+async function sendMarkersTDB()
+{
+	//e.preventDefault()
+	const dsata = {
+		corx: '24.972557134111153',  
+		cory: '121.26728431015152', // tinggal implement user location
+		type: 'Nor',
+		name: null || 'john code'
+	}
+
+	//const res = await fetch('http://localhost:5500/tambah-marker-user',
+	const res = await fetch('https://binbeacon.onrender.com/ambil-marker/tambah-marker-user',
+	{
+		method: 'POST',
+		headers: {
+			"Content-Type": 'application/json'
+		},
+		body: JSON.stringify(dsata)
+
+	}).then(response => response.json()) 
+	.then(data => console.log('Success:', data))
+	.catch(error => console.error('Error:', error));
+}
+sendMarkersTDB();
 
 // ------------------------------------------------------- OVERLAY BUTTON  -------------------------------------------------------
 const buttons = document.querySelectorAll(".btn");

@@ -1,6 +1,6 @@
 //initializing supa client
 import dotenv from 'dotenv';
-dotenv.config({ path: './backendstuff/.env' });
+dotenv.config({ path: './.env' });  //change path to main directory
 
 
 import { createClient } from '@supabase/supabase-js'
