@@ -12,5 +12,3 @@ const supabase = createClient(supabaseUrl, supabaseKey)
 console.log('working111');
 
 export default supabase
-
-
