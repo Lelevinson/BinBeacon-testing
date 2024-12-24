@@ -25,7 +25,6 @@ async function fetchAPI(){
 }
 fetchAPI();
  
-
 //	map and user live location initiallization
 var userMarker;
 var userLatLng; // to record lat and lng value of user live location
