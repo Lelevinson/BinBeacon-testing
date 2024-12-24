@@ -90,6 +90,7 @@ body {
 
 #map {
 	/*flexbox css for child(s) element*/
+	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: flex-end;
@@ -105,26 +106,37 @@ body {
 }
 
 .bottom-layer {
-	position: fixed; /* Fixes the div to the viewport */
-	display: flex; /* to set child div inside this parent div: button-overlay */
-	justify-content: space-evenly;
+	position: absolute; /* position the div to the ancestor: #map */
+	/* display: flex; */ /* to set child div inside this parent div: button-overlay */
+	/* justify-content: space-evenly;
 	align-items: center;
 	flex-grow: 0;
 	flex-shrink: 0;
-	flex-basis: 1;
+	flex-basis: 1; */
 
-	bottom: 0;
-	padding-top: 1em;
-	margin-bottom: 1.35rem;
+	bottom: 1.2em;
+	right: 0;
+	/* padding-top: 1em; */
+	/* margin-bottom: 1.35rem; */
 
-	height: 5rem;
-	width: 20rem;
+	height: 10em;
+	width: 5em;
 
-	background-color: #fff;
-	box-shadow: transparent 0 0 0 3px, rgba(18, 18, 18, 0.1) 0 6px 20px;
-	border-radius: 500px;
+	/* background-color: #fff; */
+	/* 	box-shadow: transparent 0 0 0 3px, rgba(18, 18, 18, 0.1) 0 6px 20px;
+	border-radius: 500px; */
 
 	z-index: 1000;
+}
+
+.btn {
+	height: 44px;
+	width: 44px;
+	background-color: #4caf50;
+
+	margin: 10px 5px 10px 3px;
+	border-style: none;
+	border-radius: 10%;
 }
 
 .button-overlay {
