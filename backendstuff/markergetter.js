@@ -14,7 +14,7 @@ const gettingCoords = async () => { //fetchOrders
 		}
 		
 		if (markers1) {
-			console.log('got markers from supa')
+			console.log('got markers from supa') 
 			console.log(markers1);
 		}
 	

@@ -64,7 +64,7 @@ var map = L.map("map", {
 		}
 	});
 
-//	bin array logic implementation
+//	bin array logic implementation 
 var recBinsArr = [];
 var norBinsArr = [];
 var twoBinsArr = [];

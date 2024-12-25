@@ -17,7 +17,7 @@ app.use(express.json())
 app.get('/ambil-marker', async (req, res) => {
   const coords = await gettingCoords();
   res.json(coords);
-});
+}); 
 
 app.get('/configsta', (req, res) => {
   res.json({stadia});
