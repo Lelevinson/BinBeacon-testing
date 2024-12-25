@@ -160,7 +160,7 @@ async function sendMarkersTDB() {
 
 	//const res = await fetch('http://localhost:5500/tambah-marker-user',
 	const res = await fetch(
-		"https://binbeacon.onrender.com/ambil-marker/tambah-marker-user",
+		"https://binbeacon.onrender.com/tambah-marker-user",
 		{
 			method: "POST",
 			headers: {
@@ -184,6 +184,3 @@ for (let i = 0; i < buttons.length; i++) {
 		});
 	}
 }
-
-//anjing 188
-// levinson comment here

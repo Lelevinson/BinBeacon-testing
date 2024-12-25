@@ -7,8 +7,8 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 5500;
-//const port = 5500;
+const port = process.env.PORT || 3000;
+//const port = 3000;
 const stadia = process.env.STADIA_API
 
 app.use(cors());
@@ -17,7 +17,7 @@ app.use(express.json())
 app.get('/ambil-marker', async (req, res) => {
   const coords = await gettingCoords();
   res.json(coords);
-}); 
+});
 
 app.get('/configsta', (req, res) => {
   res.json({stadia});
@@ -36,6 +36,8 @@ app.post('/tambah-marker-user', async(req,res) => {
 
 app.listen(port, () => {
   console.log('running server on port:', port);
+}).on('error', (err) => {
+  console.error('Server error:', err)
 });
 
 
