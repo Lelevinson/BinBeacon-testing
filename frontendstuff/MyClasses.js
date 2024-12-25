@@ -15,7 +15,7 @@ export class RecBin {
 
 	static recyclableIcon = L.icon({
 		// this is for adding and styling icon
-		iconUrl: "/images/recyclablemarker.png",
+		iconUrl: "/frontendstuff/images/recyclablemarker.png",
 		iconSize: [37, 37],
 		iconAnchor: [19, 26], // anchor when zooming in/out. lat of anchor is half of the icon size lat (it's horizontal).
 		// long of anchor is same
@@ -23,7 +23,7 @@ export class RecBin {
 	});
 
 	static recyclableImg =
-		'<img src="/images/recyclablemarker.png" height="50px" width="50px"/>';
+		'<img src="/frontendstuff/images/recyclablemarker.png" height="50px" width="50px"/>';
 
 	static recyclablePopUp = L.popup({
 		maxWidth: 300, // this is default value, I added this just to be more consice
@@ -52,7 +52,7 @@ export class NorBin {
 	}
 
 	static nonRecyclableIcon = L.icon({
-		iconUrl: "/images/nonrecyclablemarker.png",
+		iconUrl: "/frontendstuff/images/nonrecyclablemarker.png",
 		iconSize: [37, 37],
 		iconAnchor: [19, 26],
 		popupAnchor: [0, -20],
@@ -60,7 +60,7 @@ export class NorBin {
 
 	//	creating picture variable for pop up
 	static nonRecyclableImg =
-		'<img src="/images/nonrecyclablemarker.png" height="50px" width="50px"/>';
+		'<img src="/frontendstuff/images/nonrecyclablemarker.png" height="50px" width="50px"/>';
 
 	static nonRecyclablePopUp = L.popup({
 		maxWidth: 300,
@@ -89,14 +89,14 @@ export class TwoBin {
 	}
 
 	static recyclableAndNonIcon = L.icon({
-		iconUrl: "/images/twobinmarker.png",
+		iconUrl: "/frontendstuff/images/twobinmarker.png",
 		iconSize: [37, 37],
 		iconAnchor: [19, 26],
 		popupAnchor: [0, -20],
 	});
 
 	static recAndNonImg =
-		'<img src="/images/twobinmarker.png" height="50px" width="50px"/>';
+		'<img src="/frontendstuff/images/twobinmarker.png" height="50px" width="50px"/>';
 
 	static recyclableAndNonPopUp = L.popup({
 		maxWidth: 300,
