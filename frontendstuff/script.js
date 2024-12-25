@@ -12,20 +12,19 @@ var osm = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 });
 
 var stadiapi;
-async function fetchAPI(){
-	try{
+async function fetchAPI() {
+	try {
 		//const response = await fetch('http://localhost:5500/configsta') // jadi karena port itu 5500 dia malah ke config situ, bukan ke port 3000. `${backendBaseURL}/config`
-		const response = await fetch('https://binbeacon.onrender.com/configsta')
+		const response = await fetch("https://binbeacon.onrender.com/configsta");
 		const data = await response.json();
 		//backendURL = data.port;
-		stadiapi = data
-	} catch(error){
-    console.error('Error fetching configuration:', error);
+		stadiapi = data;
+	} catch (error) {
+		console.error("Error fetching configuration:", error);
 	}
 }
 fetchAPI();
 
- 
 //	map and user live location initiallization
 var userMarker;
 var userLatLng; // to record lat and lng value of user live location
@@ -64,7 +63,7 @@ var map = L.map("map", {
 		}
 	});
 
-//	bin array logic implementation 
+//	bin array logic implementation
 var recBinsArr = [];
 var norBinsArr = [];
 var twoBinsArr = [];
@@ -74,7 +73,7 @@ let databaseArr = [];
 async function fetchCoords() {
 	try {
 		//const response = await fetch('http://localhost:5500/ambil-marker');
-		const response = await fetch('https://binbeacon.onrender.com/ambil-marker');
+		const response = await fetch("https://binbeacon.onrender.com/ambil-marker");
 
 		if (!response.ok) {
 			throw new Error("Failed to get coords");
@@ -124,7 +123,7 @@ async function sort() {
 			ext: "png", //removed attributions
 		}
 	);
-	
+
 	var stadiaDark = L.tileLayer(
 		`https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.{ext}?api_key=${stadiapi}`,
 		{
@@ -150,28 +149,29 @@ async function sort() {
 }
 sort();
 
-async function sendMarkersTDB()
-{
+async function sendMarkersTDB() {
 	//e.preventDefault()
 	const dsata = {
-		corx: '24.972557134111153',  
-		cory: '121.26728431015152', // tinggal implement user location
-		type: 'Nor',
-		name: null || 'john code'
-	}
+		corx: "24.972557134111153",
+		cory: "121.26728431015152", // tinggal implement user location
+		type: "Nor",
+		name: null || "john code",
+	};
 
 	//const res = await fetch('http://localhost:5500/tambah-marker-user',
-	const res = await fetch('https://binbeacon.onrender.com/ambil-marker/tambah-marker-user',
-	{
-		method: 'POST',
-		headers: {
-			"Content-Type": 'application/json'
-		},
-		body: JSON.stringify(dsata)
-
-	}).then(response => response.json()) 
-	.then(data => console.log('Success:', data))
-	.catch(error => console.error('Error:', error));
+	const res = await fetch(
+		"https://binbeacon.onrender.com/ambil-marker/tambah-marker-user",
+		{
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(dsata),
+		}
+	)
+		.then((response) => response.json())
+		.then((data) => console.log("Success:", data))
+		.catch((error) => console.error("Error:", error));
 }
 sendMarkersTDB();
 
@@ -184,3 +184,5 @@ for (let i = 0; i < buttons.length; i++) {
 		});
 	}
 }
+
+// levinson comment here
