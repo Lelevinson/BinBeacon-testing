@@ -45,7 +45,7 @@ var map = L.map("map", {
 		if (!userMarker) {
 			userMarker = new L.marker(e.latlng, {
 				icon: L.icon({
-					iconUrl: "/frontendstuff/images/beacon-svgrepo-com.svg",
+					iconUrl: "/frontendstuff/images/currentuserlocmarker.png",
 					iconSize: [37, 37],
 					iconAnchor: [19, 26],
 				}),
