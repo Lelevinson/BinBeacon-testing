@@ -1,4 +1,5 @@
 import express from "express";
+import path from "path";
 import cors from 'cors';
 import { gettingCoords } from './markergetter.js';
 import supabase from './supabaseClient.js'
@@ -13,6 +14,9 @@ const stadia = process.env.STADIA_API
 
 app.use(cors());
 app.use(express.json())
+
+const __dirname = path.resolve();
+app.use('/frontendstuff', express.static(path.join(__dirname, 'frontendstuff')));
 
 app.get('/ambil-marker', async (req, res) => {
   const coords = await gettingCoords();
