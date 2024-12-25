@@ -4,7 +4,7 @@ export class RecBin {
 	constructor(locationX, locationY, map) {
 		this.locationX = locationX;
 		this.locationY = locationY;
-
+ 
 		this.marker = L.marker([this.locationX, this.locationY], {
 			icon: RecBin.recyclableIcon,
 			alt: "recyclable", // if the image fail to show up

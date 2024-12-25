@@ -3,7 +3,7 @@ import path from "path";
 import cors from 'cors';
 import { gettingCoords } from './markergetter.js';
 import supabase from './supabaseClient.js'
-
+ 
 import dotenv from 'dotenv';
 dotenv.config();
 
