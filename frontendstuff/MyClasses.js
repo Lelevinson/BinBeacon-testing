@@ -15,7 +15,7 @@ export class RecBin {
 
 	static recyclableIcon = L.icon({
 		// this is for adding and styling icon
-		iconUrl: "/frontendstuff/images/marker recyclable.png",
+		iconUrl: "./frontendstuff/images/marker recyclable.png",
 		iconSize: [37, 37],
 		iconAnchor: [19, 26], // anchor when zooming in/out. lat of anchor is half of the icon size lat (it's horizontal).
 		// long of anchor is same
@@ -23,7 +23,7 @@ export class RecBin {
 	});
 
 	static recyclableImg =
-		'<img src="/frontendstuff/images/marker recyclable.png" height="50px" width="50px"/>';
+		'<img src="./frontendstuff/images/marker recyclable.png" height="50px" width="50px"/>';
 
 	static recyclablePopUp = L.popup({
 		maxWidth: 300, // this is default value, I added this just to be more consice
