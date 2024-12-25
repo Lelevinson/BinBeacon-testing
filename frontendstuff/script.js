@@ -47,6 +47,7 @@ var map = L.map("map", {
 				icon: L.icon({
 					iconUrl: "/frontendstuff/images/beacon-svgrepo-com.svg",
 					iconSize: [37, 37],
+					iconAnchor: [19, 26],
 				}),
 				alt: "user marker",
 				title: "you are here!",
@@ -159,16 +160,13 @@ async function sendMarkersTDB() {
 	};
 
 	//const res = await fetch('http://localhost:5500/tambah-marker-user',
-	const res = await fetch(
-		"https://binbeacon.onrender.com/tambah-marker-user",
-		{
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(dsata),
-		}
-	)
+	const res = await fetch("https://binbeacon.onrender.com/tambah-marker-user", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(dsata),
+	})
 		.then((response) => response.json())
 		.then((data) => console.log("Success:", data))
 		.catch((error) => console.error("Error:", error));
