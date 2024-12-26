@@ -45,8 +45,8 @@ var map = L.map("map", {
 		if (!userMarker) {
 			userMarker = new L.marker(e.latlng, {
 				icon: L.icon({
-					iconUrl: "/frontendstuff/images/currentuserlocmarker.png",
-					iconSize: [37, 37],
+					iconUrl: "/frontendstuff/images/userlocmarker.gif",
+					iconSize: [40, 40], // ganti dr 3737
 					iconAnchor: [19, 26],
 				}),
 				alt: "user marker",
