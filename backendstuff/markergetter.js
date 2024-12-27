@@ -6,7 +6,7 @@ const gettingCoords = async () => { //fetchOrders
 	try {
 		let { data: markers1, error } = await supabase
 		.from('markers1')
-		.select('coordinate_x, coordinate_y, type')
+		.select('coordinate_x, coordinate_y, type, creator')
 
 		if (error) {
 			console.error(error);
@@ -14,7 +14,7 @@ const gettingCoords = async () => { //fetchOrders
 		}
 		
 		if (markers1) {
-			console.log('got markers from supa') 
+			console.log('got data from supa') 
 			console.log(markers1);
 		}
 	
