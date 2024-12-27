@@ -30,8 +30,9 @@ var userMarker;
 var userLatLng; // to record lat and lng value of user live location
 var map = L.map("map", {
 	center: [24.97002566166282, 121.26446449672198], // mnurut gw mendingan sini. ori 24.969748513353736, 121.26744248398677
-	zoom: 18, //originally 16
-	minZoom: 16,
+	zoom: 18, // originally 16
+	minZoom: 12, // maximum zoom is taoyuan
+	doubleClickZoom: false, // remove double click for zoom
 	zoomControl: false, // remove + - button for zoom
 	maxBounds: bound, // option to set bounds.
 	layers: [osm],
