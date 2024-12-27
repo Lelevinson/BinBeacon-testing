@@ -17,27 +17,44 @@
 
 <body>
   <!-- side nav 1 -->
-  <div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div id="nav-header" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNavHeader()">&times;</a>
     <a href="#">About</a>
     <a href="#">Services</a>
     <a href="#">Clients</a>
     <a href="#">Contact</a>
   </div>
-  
+  <!-- side nav 2 -->
+  <div id="nav-info" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNavInfo()">&times;</a>
+    <a href="#">lol</a>
+    <a href="#">lol</a>
+    <a href="#">lol</a>
+    <a href="#">lol</a>
+  </div>
+    <!-- side nav 3 -->
+  <div id="nav-add" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNavAdd()">&times;</a>
+    <a href="#">add</a>
+    <a href="#">add</a>
+    <a href="#">add</a>
+    <a href="#">add</a>
+  </div>
+
+
   <!-- Use any element to open the sidenav -->
   <div id="header">
     <img src="frontendstuff/images/lighthouse-svgrepo-com.svg" class="header-image" />
-    <p class="header-text" onclick="openNav()">Bin Beacon</p>
+    <p class="header-text" onclick="openNavHeader()">Bin Beacon</p>
   </div>
-  
+
   <div id="main">
     <div id="map">
       <div class="bottom-layer">
-        <div id="btn-question" class="btn">
+        <div id="btn-question" class="btn" onclick="openNavInfo()">
           <img src="frontendstuff/images/info.svg" class="info-image" />
         </div>
-        <div id="btn-add" class="btn">
+        <div id="btn-add" class="btn" onclick="openNavAdd()">
           <img src="frontendstuff/images/add.svg" class="add-image" />
         </div>
         <div id="btn-reset" class="btn" data-action="reset-zoom">
@@ -66,7 +83,7 @@
   </div>
   <!--diganti dari <script src="script.js"></script> -tambahin module biar bisa pake fungsi import export-->
   <script type="module" src="frontendstuff/script.js"></script>
-<!--   <script src="frontendstuff/event.js"></script> -->
+  <!--   <script src="frontendstuff/event.js"></script> -->
 </body>
 
 </html>

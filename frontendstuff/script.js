@@ -186,15 +186,37 @@ for (let i = 0; i < buttons.length; i++) {
 }
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
-window.openNav = function() {
-	document.getElementById("mySidenav").style.height = "250px";
+window.openNavHeader = function() {
+	document.getElementById("nav-header").style.height = "250px";
 	document.getElementById("main").style.marginBottom = "250px";
-	console.log("openNav");
 }
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
-window.closeNav = function() {
-	document.getElementById("mySidenav").style.height = "0";
+window.closeNavHeader = function() {
+	document.getElementById("nav-header").style.height = "0";
 	document.getElementById("main").style.marginBottom = "0";
 }
 
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+window.openNavInfo = function() {
+  document.getElementById("nav-info").style.height = "250px";
+  document.getElementById("main").style.marginBottom = "250px";
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+window.closeNavInfo = function() {
+  document.getElementById("nav-info").style.height = "0";
+  document.getElementById("main").style.marginBottom = "0";
+}
+
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+window.openNavAdd = function() {
+  document.getElementById("nav-add").style.height = "250px";
+  document.getElementById("main").style.marginBottom = "250px";
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+window.closeNavAdd = function() {
+  document.getElementById("nav-add").style.height = "0";
+  document.getElementById("main").style.marginBottom = "0";
+}
