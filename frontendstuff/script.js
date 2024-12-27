@@ -139,7 +139,7 @@ async function sort() {
 	var baseBins = {
 		Standard: osm,
 		Light: stadiaLight,
-		Dark: stadiaDark,
+		Dark: stadiaDark, 
 	};
 
 	var overlayBins = {
@@ -184,3 +184,17 @@ for (let i = 0; i < buttons.length; i++) {
 		});
 	}
 }
+
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+window.openNav = function() {
+	document.getElementById("mySidenav").style.height = "250px";
+	document.getElementById("main").style.marginBottom = "250px";
+	console.log("openNav");
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+window.closeNav = function() {
+	document.getElementById("mySidenav").style.height = "0";
+	document.getElementById("main").style.marginBottom = "0";
+}
+
