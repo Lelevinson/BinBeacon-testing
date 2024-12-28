@@ -6,7 +6,7 @@ const gettingCoords = async () => { //fetchOrders
 	try {
 		let { data: markers1, error } = await supabase
 		.from('markers1')
-		.select('coordinate_x, coordinate_y, type, creator')
+		.select('coordinate_x, coordinate_y, type, creator, status')
 
 		if (error) {
 			console.error(error);
@@ -20,7 +20,7 @@ const gettingCoords = async () => { //fetchOrders
 	
 		// array containing data from markers1 table
 		const dataArr = markers1.map(row => { 
-			return {corx: row.coordinate_x, cory: row.coordinate_y, bintype: row.type, name: row.creator};
+			return {corx: row.coordinate_x, cory: row.coordinate_y, bintype: row.type, name: row.creator, stts: row.status};
 		});
 
 		return dataArr;

@@ -28,11 +28,11 @@ app.get('/configsta', (req, res) => {
 });
 
 app.post('/tambah-marker-user', async(req,res) => {
-  const { corx, cory, type, name } = req.body
+  const { corx, cory, type, name, stts } = req.body
   console.log(type, cory);
 
   try{
-  await addingMarkersTDB(corx, cory, type, name);
+  await addingMarkersTDB(corx, cory, type, name, stts);
 	res.json("tambah marker user received");
   } catch(error){
   res.json("gbs add")};
@@ -45,13 +45,14 @@ app.listen(port, () => {
 });
 
 
-const addingMarkersTDB = async (x, y, tipe, nama) => { //sendcurrentloc
+const addingMarkersTDB = async (x, y, tipe, nama, stats) => { //sendcurrentloc
  
   let userCorX = x;
   let userCorY = y;
   let userBinType = tipe;
   let userName = nama;
-  console.log(userCorX, userCorY, userBinType, userName)
+  let binStatus = stats;
+  console.log(userCorX, userCorY, userBinType, userName, binStatus)
   
   try {
 		let { data: markers1, error } = await supabase
@@ -61,7 +62,8 @@ const addingMarkersTDB = async (x, y, tipe, nama) => { //sendcurrentloc
 				coordinate_x: userCorX,
 				coordinate_y: userCorY,
 				type: userBinType,
-				creator: nama|| null,
+				creator: userName || null,
+        status: binStatus,
 			}
 		);
 

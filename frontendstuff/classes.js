@@ -1,11 +1,14 @@
 //	Classes of Bins
 import { sendName } from "./script.js"
-var name;
+//import { updatebinstatusfunction } from "./script.js"
 
-async function receiveName(e, marker){ //harus bgt kah taro function ini di dalam marker objectnya?
+async function receiveName(e, marker){
 	var x = e.latlng.lat;
 	var y = e.latlng.lng;
-	name = await sendName(x, y);
+	var data = await sendName(x, y);
+	console.log("dataadalah: ",data)
+	var nama = data.name;
+	var keadaan = data.stts;
 
 	console.log(`the coords are${x}, ${y}, name ${name}`) 
 
@@ -17,7 +20,9 @@ async function receiveName(e, marker){ //harus bgt kah taro function ini di dala
                 closeButton: true,
             }).setContent(
                 `<center>This was made by</center>
-                <center>${name}</center>`
+                <center>${nama}</center>
+				<center>Status is</center>
+				<center>${keadaan}</center>` // add button in the future
             )
         )
         .openPopup();
@@ -47,21 +52,6 @@ export class RecBin {
 		popupAnchor: [0, -20],
 	});
 
-	/*static recyclableImg =
-		'<img src="/frontendstuff/images/recyclablemarker.png" height="50px" width="50px"/>';
-
-		static recyclablePopUp = L.popup({
-		maxWidth: 300, // this is default value, I added this just to be more consice
-		maxHeight: 300, // not a default value, if content exceed height, it will be scrollable
-		closeButton: true, // default value
-	}).setContent(
-		"<center>THIs was made by</center>" +
-			//"</br>" +
-			name + 
-			"<center>" +
-			//RecBin.recyclableImg +
-			"</center>"
-	);*/
 }
 
 export class NorBin {

@@ -14,8 +14,8 @@ var osm = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 var stadiapi;
 async function fetchAPI() {
 	try {
-		//const response = await fetch('http://localhost:3000/configsta') // jadi karena port itu 5500 dia malah ke config situ, bukan ke port 3000. `${backendBaseURL}/config`
-		const response = await fetch("https://binbeacon.onrender.com/configsta");
+		const response = await fetch('http://localhost:3000/configsta') // jadi karena port itu 5500 dia malah ke config situ, bukan ke port 3000. `${backendBaseURL}/config`
+		//const response = await fetch("https://binbeacon.onrender.com/configsta");
 		const data = await response.json();
 		//backendURL = data.port;
 		stadiapi = data;
@@ -48,7 +48,7 @@ var map = L.map("map", {
 			userMarker = new L.marker(e.latlng, {
 				icon: L.icon({
 					iconUrl: "/frontendstuff/images/userlocmarker.gif",
-					iconSize: [40, 40], // ganti dr 3737
+					iconSize: [58, 58], // original size 3737
 					iconAnchor: [19, 26],
 				}),
 				alt: "user marker",
@@ -75,8 +75,8 @@ let databaseArr = [];
 //	Fetching data from the server
 async function fetchCoords() {
 	try {
-		//const response = await fetch('http://localhost:3000/ambil-marker');
-		const response = await fetch("https://binbeacon.onrender.com/ambil-marker");
+		const response = await fetch('http://localhost:3000/ambil-marker'); //switch antara 3000 dan render saat lg di develop
+		//const response = await fetch("https://binbeacon.onrender.com/ambil-marker");
 
 		if (!response.ok) {
 			throw new Error("Failed to get coords");
@@ -155,14 +155,14 @@ async function sort() {
 }
 sort();
 
-
 async function sendName(x, y){
 	await fetchCoords();
 
 	var result = databaseArr.find(row => row.corx === x);
 	var nama = result.name;
-	console.log("nama adalah: ", nama);
-	return nama;
+	var keadaan = result.stts;
+	console.log("nama adalah: ", nama, "keadaaan adalah: ", keadaan);
+	return result;
 }
 export {sendName};
  
@@ -170,14 +170,15 @@ export {sendName};
 async function sendMarkersTDB() {
 	//e.preventDefault()
 	const dsata = {
-		corx: "24.972557134111153",
-		cory: "121.26728431015152", // tinggal implement user location
+		corx: "24.963777459758134", // 24.963777459758134, 121.25707667724481
+		cory: "121.25707667724481", // tinggal implement user location
 		type: "Nor",
-		name: null || "john code",
+		name: "YJ",
+		stts: "Halfway"
 	};
 
-	//const res = await fetch('http://localhost:3000/tambah-marker-user',{
-	const res = await fetch("https://binbeacon.onrender.com/tambah-marker-user", {
+	const res = await fetch('http://localhost:3000/tambah-marker-user',{
+	//const res = await fetch("https://binbeacon.onrender.com/tambah-marker-user", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
