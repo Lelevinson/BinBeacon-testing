@@ -8,7 +8,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 //const port = 3000;
 const stadia = process.env.STADIA_API
 
@@ -33,9 +33,9 @@ app.post('/tambah-marker-user', async(req,res) => {
 
   try{
   await addingMarkersTDB(corx, cory, type, name);
-	res.json("tambah marker user recevied");
+	res.json("tambah marker user received");
   } catch(error){
-  res.json("fuck gbs add")};
+  res.json("gbs add")};
 });
 
 app.listen(port, () => {

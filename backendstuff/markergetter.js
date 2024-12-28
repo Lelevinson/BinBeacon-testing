@@ -20,7 +20,7 @@ const gettingCoords = async () => { //fetchOrders
 	
 		// array containing data from markers1 table
 		const dataArr = markers1.map(row => { 
-			return {corx: row.coordinate_x, cory: row.coordinate_y, bintype: row.type};
+			return {corx: row.coordinate_x, cory: row.coordinate_y, bintype: row.type, name: row.creator};
 		});
 
 		return dataArr;

@@ -1,4 +1,4 @@
-import { RecBin, TwoBin, NorBin } from "./MyClasses.js";
+import { RecBin, TwoBin, NorBin } from "./classes.js";
 
 var bound1 = L.latLng(24.962957038371627, 121.27488024265767),
 	bound2 = L.latLng(24.985034349532995, 121.2425501121096),
@@ -75,8 +75,8 @@ let databaseArr = [];
 //	Fetching data from the server
 async function fetchCoords() {
 	try {
-		//const response = await fetch('http://localhost:5500/ambil-marker');
-		const response = await fetch("https://binbeacon.onrender.com/ambil-marker");
+		const response = await fetch('http://localhost:3000/ambil-marker');
+		//const response = await fetch("https://binbeacon.onrender.com/ambil-marker");
 
 		if (!response.ok) {
 			throw new Error("Failed to get coords");
@@ -84,7 +84,8 @@ async function fetchCoords() {
 
 		const data = await response.json();
 		databaseArr = data;
-		console.log(databaseArr);
+		console.log("fetchcoordsshit: ", databaseArr);
+
 	} catch (error) {
 		console.error(error);
 	}
@@ -117,6 +118,8 @@ async function sort() {
 	var twobins = L.layerGroup(twoBinsArr);
 
 	twobins.addTo(map);
+	recbins.addTo(map);
+	norbins.addTo(map);
 
 	var stadiaLight = L.tileLayer(
 		`https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.{ext}?api_key=${stadiapi}`,
@@ -152,6 +155,18 @@ async function sort() {
 }
 sort();
 
+
+async function sendName(x, y){
+	await fetchCoords();
+
+	var result = databaseArr.find(row => row.corx === x);
+	var nama = result.name;
+	console.log("nama adalah: ", nama);
+	return nama;
+}
+export {sendName};
+ 
+
 async function sendMarkersTDB() {
 	//e.preventDefault()
 	const dsata = {
@@ -161,7 +176,7 @@ async function sendMarkersTDB() {
 		name: null || "john code",
 	};
 
-	//const res = await fetch('http://localhost:5500/tambah-marker-user',
+	//const res = await fetch('http://localhost:3000/tambah-marker-user',{
 	const res = await fetch("https://binbeacon.onrender.com/tambah-marker-user", {
 		method: "POST",
 		headers: {
