@@ -14,8 +14,8 @@ var osm = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 var stadiapi;
 async function fetchAPI() {
 	try {
-		const response = await fetch('http://localhost:3000/configsta') // jadi karena port itu 5500 dia malah ke config situ, bukan ke port 3000. `${backendBaseURL}/config`
-		//const response = await fetch("https://binbeacon.onrender.com/configsta");
+		//const response = await fetch('http://localhost:3000/configsta') // jadi karena port itu 5500 dia malah ke config situ, bukan ke port 3000. `${backendBaseURL}/config`
+		const response = await fetch("https://binbeacon.onrender.com/configsta");
 		const data = await response.json();
 		//backendURL = data.port;
 		stadiapi = data;
@@ -75,8 +75,8 @@ let databaseArr = [];
 //	Fetching data from the server
 async function fetchCoords() {
 	try {
-		const response = await fetch('http://localhost:3000/ambil-marker'); //switch antara 3000 dan render saat lg di develop
-		//const response = await fetch("https://binbeacon.onrender.com/ambil-marker");
+		//const response = await fetch('http://localhost:3000/ambil-marker'); //switch antara 3000 dan render saat lg di develop
+		const response = await fetch("https://binbeacon.onrender.com/ambil-marker");
 
 		if (!response.ok) {
 			throw new Error("Failed to get coords");
@@ -158,13 +158,24 @@ sort();
 async function sendName(x, y){
 	await fetchCoords();
 
-	var result = databaseArr.find(row => row.corx === x);
+	var result = databaseArr.find(row => row.corx === x && row.cory === y);
 	var nama = result.name;
 	var keadaan = result.stts;
 	console.log("nama adalah: ", nama, "keadaaan adalah: ", keadaan);
 	return result;
 }
 export {sendName};
+
+async function updateStatus(x, y){
+	await fetchCoords();
+
+	var hasil = databaseArr.find(row => row.corx === x && row.cory === y);
+	var situasi = hasil.stts;
+	//habis itu situasi ini dikirim ke html terus user bakal dikasi 2 pilihan gt
+	const pilihan = "Full";
+	
+}
+updateStatus();
  
 
 async function sendMarkersTDB() {
@@ -177,8 +188,8 @@ async function sendMarkersTDB() {
 		stts: "Halfway"
 	};
 
-	const res = await fetch('http://localhost:3000/tambah-marker-user',{
-	//const res = await fetch("https://binbeacon.onrender.com/tambah-marker-user", {
+	//const res = await fetch('http://localhost:3000/tambah-marker-user',{
+	const res = await fetch("https://binbeacon.onrender.com/tambah-marker-user", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
