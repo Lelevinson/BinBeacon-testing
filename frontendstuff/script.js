@@ -14,8 +14,8 @@ var osm = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 var stadiapi;
 async function fetchAPI() {
 	try {
-		//const response = await fetch('http://localhost:5500/configsta') // jadi karena port itu 5500 dia malah ke config situ, bukan ke port 3000. `${backendBaseURL}/config`
-		const response = await fetch("https://binbeacon.onrender.com/configsta");
+		const response = await fetch('http://localhost:5500/configsta') // jadi karena port itu 5500 dia malah ke config situ, bukan ke port 3000. `${backendBaseURL}/config`
+		//const response = await fetch("https://binbeacon.onrender.com/configsta");
 		const data = await response.json();
 		//backendURL = data.port;
 		stadiapi = data;
@@ -75,8 +75,8 @@ let databaseArr = [];
 //	Fetching data from the server
 async function fetchCoords() {
 	try {
-		const response = await fetch('http://localhost:3000/ambil-marker');
-		//const response = await fetch("https://binbeacon.onrender.com/ambil-marker");
+		//const response = await fetch('http://localhost:3000/ambil-marker');
+		const response = await fetch("https://binbeacon.onrender.com/ambil-marker");
 
 		if (!response.ok) {
 			throw new Error("Failed to get coords");
@@ -176,8 +176,8 @@ async function sendMarkersTDB() {
 		name: null || "john code",
 	};
 
-	//const res = await fetch('http://localhost:3000/tambah-marker-user',{
-	const res = await fetch("https://binbeacon.onrender.com/tambah-marker-user", {
+	const res = await fetch('http://localhost:3000/tambah-marker-user',{
+	//const res = await fetch("https://binbeacon.onrender.com/tambah-marker-user", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
