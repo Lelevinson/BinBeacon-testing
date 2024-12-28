@@ -1,6 +1,5 @@
 //	Classes of Bins
 import { sendName } from "./script.js"
-//let something = "anjing";
 var name;
 
 async function receiveName(e, marker){ //harus bgt kah taro function ini di dalam marker objectnya?
