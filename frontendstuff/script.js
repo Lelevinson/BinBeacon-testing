@@ -85,7 +85,6 @@ async function fetchCoords() {
 		const data = await response.json();
 		databaseArr = data;
 		console.log("fetchcoordsshit: ", databaseArr);
-
 	} catch (error) {
 		console.error(error);
 	}
@@ -142,7 +141,7 @@ async function sort() {
 	var baseBins = {
 		Standard: osm,
 		Light: stadiaLight,
-		Dark: stadiaDark, 
+		Dark: stadiaDark,
 	};
 
 	var overlayBins = {
@@ -155,28 +154,26 @@ async function sort() {
 }
 sort();
 
-async function sendName(x, y){
+async function sendName(x, y) {
 	await fetchCoords();
 
-	var result = databaseArr.find(row => row.corx === x && row.cory === y);
+	var result = databaseArr.find((row) => row.corx === x && row.cory === y);
 	var nama = result.name;
 	var keadaan = result.stts;
 	console.log("nama adalah: ", nama, "keadaaan adalah: ", keadaan);
 	return result;
 }
-export {sendName};
+export { sendName };
 
-async function updateStatus(x, y){
+async function updateStatus(x, y) {
 	await fetchCoords();
 
-	var hasil = databaseArr.find(row => row.corx === x && row.cory === y);
+	var hasil = databaseArr.find((row) => row.corx === x && row.cory === y);
 	var situasi = hasil.stts;
 	//habis itu situasi ini dikirim ke html terus user bakal dikasi 2 pilihan gt
 	const pilihan = "Full";
-	
 }
 updateStatus();
- 
 
 async function sendMarkersTDB() {
 	//e.preventDefault()
@@ -185,7 +182,7 @@ async function sendMarkersTDB() {
 		cory: "121.25707667724481", // tinggal implement user location
 		type: "Nor",
 		name: "YJ",
-		stts: "Halfway"
+		stts: "Halfway",
 	};
 
 	//const res = await fetch('http://localhost:3000/tambah-marker-user',{
@@ -213,37 +210,37 @@ for (let i = 0; i < buttons.length; i++) {
 }
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
-window.openNavHeader = function() {
+window.openNavHeader = function () {
 	document.getElementById("nav-header").style.height = "250px";
-	document.getElementById("main").style.marginBottom = "250px";
-}
+	document.getElementById("main").style.transform = "translateY(-250px)";
+};
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
-window.closeNavHeader = function() {
+window.closeNavHeader = function () {
 	document.getElementById("nav-header").style.height = "0";
-	document.getElementById("main").style.marginBottom = "0";
-}
+	document.getElementById("main").style.transform = "translateY(0)";
+};
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
-window.openNavInfo = function() {
-  document.getElementById("nav-info").style.height = "250px";
-  document.getElementById("main").style.marginBottom = "250px";
-}
+window.openNavInfo = function () {
+	document.getElementById("nav-info").style.height = "250px";
+	document.getElementById("main").style.transform = "translateY(-250px)";
+};
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
-window.closeNavInfo = function() {
-  document.getElementById("nav-info").style.height = "0";
-  document.getElementById("main").style.marginBottom = "0";
-}
+window.closeNavInfo = function () {
+	document.getElementById("nav-info").style.height = "0";
+	document.getElementById("main").style.transform = "translateY(0)";
+};
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
-window.openNavAdd = function() {
-  document.getElementById("nav-add").style.height = "250px";
-  document.getElementById("main").style.marginBottom = "250px";
-}
+window.openNavAdd = function () {
+	document.getElementById("nav-add").style.height = "250px";
+	document.getElementById("main").style.transform = "translateY(-250px)";
+};
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
-window.closeNavAdd = function() {
-  document.getElementById("nav-add").style.height = "0";
-  document.getElementById("main").style.marginBottom = "0";
-}
+window.closeNavAdd = function () {
+	document.getElementById("nav-add").style.height = "0";
+	document.getElementById("main").style.transform = "translateY(0)";
+};

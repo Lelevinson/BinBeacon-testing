@@ -55,6 +55,7 @@ body {
 }
 
 #header {
+	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -62,7 +63,8 @@ body {
 
 	height: 10%;
 	width: 100%;
-	background-color: hsla(129, 69%, 53%, 0.87);
+	background-color: hsla(129, 69%, 53%, 1);
+	z-index: 10;
 }
 
 .header-image {
@@ -87,7 +89,7 @@ body {
 }
 
 #main {
-	transition: margin-bottom 0.5s;
+	transition: transform 0.5s ease;
 	height: 90%;
 	width: 100%;
 }
@@ -111,27 +113,8 @@ body {
 
 .bottom-layer {
 	position: absolute;
-	/* position the div to the ancestor: #map */
-	/* display: flex; */
-	/* to set child div inside this parent div: button-overlay */
-	/* justify-content: space-evenly;
-	align-items: center;
-	flex-grow: 0;
-	flex-shrink: 0;
-	flex-basis: 1; */
-
 	bottom: 1.5em;
 	right: 0.85em;
-	/* padding-top: 1em; */
-	/* margin-bottom: 1.35rem; */
-
-	/*   height: 9em;
-width: 5em; */
-
-	/* background-color: #fff; */
-	/* 	box-shadow: transparent 0 0 0 3px, rgba(18, 18, 18, 0.1) 0 6px 20px;
-	border-radius: 500px; */
-
 	z-index: 1000;
 }
 
@@ -141,15 +124,6 @@ width: 5em; */
 	justify-content: center;
 	height: 45px;
 	width: 45px;
-	/* background-color: rgba(128, 128, 128, 0.5);
-	
-	margin-top: 0.75em;
-	margin-left: 0.4em;
-	margin-bottom: 0.75em; 
-	
-	padding: 5%;
-	border-style: none;
-	border-radius: 10%; */
 	background-color: white;
 	border: 2.3px solid rgba(128, 128, 128, 0.5);
 	border-radius: 10%;
@@ -176,113 +150,103 @@ width: 5em; */
 }
 
 /* The bottom side navigation menu */
-.sidenav {
+.templatenav {
 	height: 0;
 	/* 0 length - change this with JavaScript */
 	width: 100%;
 	position: fixed;
 	/* Stay in place */
 	z-index: 1;
-	/* Stay on top */
+	/* Stay on bottom */
 	bottom: 0;
 	left: 0;
 	background-color: hsl(129, 16%, 98%);
 	overflow-x: hidden;
 	/* disable horizontal scroll */
-	/*padding-top: 60px;*/
 	transition: 0.5s;
+	display: flex;
 }
 
-/* The navigation menu links */
-#nav-header a {
-	text-decoration: none;
-	font-size: 1.5em;
-	color: #818181;
-	display: block;
-	transition: 0.3s;
-	margin-top: 1em;
-	margin-left: 1em;
-	padding-bottom: 0.2em;
+.nav-template-left,
+.nav-template-right {
+	height: 100%;
+	flex-grow: 0;
+	flex-shrink: 0;
 }
 
-/* When you clicked the navigation links, change their color */
-#nav-header a:focus {
-	color: hsla(129, 69%, 53%, 0.87);
+.nav-template-left {
+	flex-basis: 90%;
+	background-color: blue; /* use this to show the positon */
 }
 
-/* Position and style the close button (top right corner) */
-#nav-header .closebtn {
-	position: absolute;
-	top: -0.48em;
-	right: 1em;
-	font-size: 2em;
+.nav-template-right {
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	flex-basis: 10%;
+	/* background-color: lightblue; use this to show the position*/
 }
 
-/* The navigation menu links */
-#nav-info a {
-	text-decoration: none;
-	font-size: 1.5em;
-	color: #818181;
-	display: block;
-	transition: 0.3s;
-	margin-top: 1em;
-	margin-left: 1em;
-	padding-bottom: 0.2em;
+.close-button-layer {
+	height: 45px;
+	width: 45px;
+	margin-top: 0.8em;
+	/* background-color: white; use this to show the position*/
 }
 
-/* When you clicked the navigation links, change their color */
-#nav-info a:focus {
-	color: hsla(129, 69%, 53%, 0.87);
-}
-
-/* Position and style the close button (top right corner) */
-#nav-info .closebtn {
-	position: absolute;
-	top: -0.48em;
-	right: 1em;
-	font-size: 2em;
-}
-
-/* The navigation menu links */
-#nav-add a {
-	text-decoration: none;
-	font-size: 1.5em;
-	color: #818181;
-	display: block;
-	transition: 0.3s;
-	margin-top: 1em;
-	margin-left: 1em;
-	padding-bottom: 0.2em;
-}
-
-/* When you clicked the navigation links, change their color */
-#nav-add a:focus {
-	color: hsla(129, 69%, 53%, 0.87);
-}
-
-/* Position and style the close button (top right corner) */
-#nav-add .closebtn {
-	position: absolute;
-	top: -0.48em;
-	right: 1em;
-	font-size: 2em;
+.close-button {
+	height: auto;
+	width: auto;
+	cursor: pointer;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-	.sidenav {
-		padding-top: 15px;
+@media screen and (max-height: 450px), screen and (max-width: 600px) {
+	.templatenav {
+		height: 0;
+		/* 0 length - change this with JavaScript */
+		width: 100%;
+		position: fixed;
+		/* Stay in place */
+		z-index: 1;
+		/* Stay on bottom */
+		bottom: 0;
+		left: 0;
+		background-color: hsl(129, 16%, 98%);
+		transition: 0.5s;
+		display: flex;
 	}
 
-	#nav-header a {
-		font-size: 18px;
+	.nav-template-left,
+	.nav-template-right {
+		height: 100%;
+		flex-grow: 0;
+		flex-shrink: 0;
 	}
 
-	#nav-info a {
-		font-size: 18px;
+	.nav-template-left {
+		flex-basis: 85%;
+		background-color: blue; /* use this to show the positon */
 	}
 
-	#nav-add a {
-		font-size: 18px;
+	.nav-template-right {
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		flex-basis: 15%;
+		/* background-color: lightblue; use this to show the position*/
+	}
+
+	.close-button-layer {
+		height: 35px;
+		width: 35px;
+		margin-top: 0.8em;
+		/* background-color: white; use this to show the position*/
+	}
+
+	.close-button {
+		height: auto;
+		width: auto;
+		cursor: pointer;
 	}
 }

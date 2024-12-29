@@ -1,45 +1,44 @@
 //	Classes of Bins
-import { sendName } from "./script.js"
+import { sendName } from "./script.js";
 //import { updatebinstatusfunction } from "./script.js"
 
-async function receiveName(e, marker){
+async function receiveName(e, marker) {
 	var x = e.latlng.lat;
 	var y = e.latlng.lng;
 	var data = await sendName(x, y);
-	console.log("dataadalah: ",data)
+	console.log("dataadalah: ", data);
 	var nama = data.name;
 	var keadaan = data.stts;
 
-	console.log(`the coords are${x}, ${y}, name ${name}`) 
+	console.log(`the coords are${x}, ${y}, name ${name}`);
 
 	marker
-        .bindPopup(
-            L.popup({
-                maxWidth: 300,
-                maxHeight: 300,
-                closeButton: true,
-            }).setContent(
-                `<center>This was made by</center>
+		.bindPopup(
+			L.popup({
+				maxWidth: 300,
+				maxHeight: 300,
+				closeButton: true,
+			}).setContent(
+				`<center>This was made by</center>
                 <center>${nama}</center>
 				<center>Status is</center>
 				<center>${keadaan}</center>` // add button in the future
-            )
-        )
-        .openPopup();
+			)
+		)
+		.openPopup();
 }
 
 export class RecBin {
 	constructor(locationX, locationY, map) {
 		this.locationX = locationX;
 		this.locationY = locationY;
- 
+
 		this.marker = L.marker([this.locationX, this.locationY], {
 			icon: RecBin.recyclableIcon,
 			alt: "recyclable", // if the image fail to show up
 			title: "click to see bin status", // if hover cursor on marker, a browser tooltip will pop up
 			riseOnHover: true, // if 2 or more trash bin coordinate is close, then the one cursor hover will be on top
-		})
-		.on('click', (e) => receiveName(e, this.marker)) 
+		}).on("click", (e) => receiveName(e, this.marker));
 		//.addTo(map);
 	}
 
@@ -51,7 +50,6 @@ export class RecBin {
 		// long of anchor is same
 		popupAnchor: [0, -20],
 	});
-
 }
 
 export class NorBin {
@@ -64,8 +62,7 @@ export class NorBin {
 			alt: "non-recyclable",
 			title: "click to see bin status",
 			riseOnHover: true,
-		})	
-		.on('click', (e) => receiveName(e, this.marker)) 
+		}).on("click", (e) => receiveName(e, this.marker));
 		//.addTo(map);
 	}
 
@@ -87,8 +84,7 @@ export class TwoBin {
 			alt: "both non recyclable and recyclable",
 			title: "click to see bin status",
 			riseOnHover: true,
-		})		
-		.on('click', (e) => receiveName(e, this.marker)) 
+		}).on("click", (e) => receiveName(e, this.marker));
 		//.addTo(map);
 	}
 
