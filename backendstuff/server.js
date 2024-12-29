@@ -14,19 +14,19 @@ const stadia = process.env.STADIA_API
 
 app.use(cors());
 app.use(express.json())
-
+//------------------------------------------------------------------------------
 const __dirname = path.resolve();
 app.use('/frontendstuff', express.static(path.join(__dirname, 'frontendstuff')));
-
+//------------------------------------------------------------------------------
 app.get('/ambil-marker', async (req, res) => {
   const coords = await gettingCoords();
   res.json(coords);
 });
-
+//------------------------------------------------------------------------------
 app.get('/configsta', (req, res) => {
   res.json({stadia});
 });
-
+//------------------------------------------------------------------------------
 app.post('/tambah-marker-user', async(req,res) => {
   const { corx, cory, type, name, stts } = req.body
   console.log(type, cory);
@@ -37,13 +37,23 @@ app.post('/tambah-marker-user', async(req,res) => {
   } catch(error){
   res.json("gbs add")};
 });
-
+//------------------------------------------------------------------------------
+app.post('/update-status', async(req,res) => {
+  const { corx, cory, stts } = req.body
+  
+  try{
+    await updateStatus(corx, cory, stts)
+    res.json("stts anjuser received");
+  }catch(error){
+    res.json("gbs lihat status")};
+})
+//------------------------------------------------------------------------------
 app.listen(port, () => {
   console.log('running server on port:', port);
 }).on('error', (err) => {
   console.error('Server error:', err)
 });
-
+//------------------------------------------------------------------------------
 
 const addingMarkersTDB = async (x, y, tipe, nama, stats) => { //sendcurrentloc
  
@@ -82,3 +92,19 @@ const addingMarkersTDB = async (x, y, tipe, nama, stats) => { //sendcurrentloc
     console.log(error); 
     }
 } 
+//------------------------------------------------------------------------------
+
+async function updateStatus(x, y, stts) {
+  console.log("settes adalh:", stts)
+  const { data, error } = await supabase
+      .from('markers1') 
+      .update({ status: stts })
+      .eq('coordinate_x', x) 
+      .eq('coordinate_y', y);
+
+  if (error) {
+      console.error('Error updating data:', error);
+  } else {
+      console.log('Data updated successfully:', data.stts);
+  }
+}

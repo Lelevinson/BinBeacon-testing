@@ -9,8 +9,7 @@ async function receiveName(e, marker){
 	console.log("dataadalah: ",data)
 	var nama = data.name;
 	var keadaan = data.stts;
-
-	console.log(`the coords are${x}, ${y}, name ${name}`) 
+	//console.log(`the coords are${x}, ${y}, name ${nama}`) 
 
 	marker
         .bindPopup(

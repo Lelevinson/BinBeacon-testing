@@ -166,26 +166,45 @@ async function sendName(x, y){
 }
 export {sendName};
 
-async function updateStatus(x, y){
-	await fetchCoords();
 
-	var hasil = databaseArr.find(row => row.corx === x && row.cory === y);
-	var situasi = hasil.stts;
+async function updateStatus(){ // x and y will be parameters and will get them from classes.js
+	await fetchCoords();
+	const {data, error} = await supabase
+	var x = 24.963777459758134;
+	var y = 121.25707667724481;
+
+	//var hasil = databaseArr.find(row => row.corx === x && row.cory === y);
+	var situasi = "Empty"//hasil.stts;
 	//habis itu situasi ini dikirim ke html terus user bakal dikasi 2 pilihan gt
-	const pilihan = "Full";
-	
+	const paket = {
+		corx: x,
+		cory: y,
+		stts: situasi
+	};
+
+	//const res = await fetch('http://localhost:3000/update-status', {
+	const res = await fetch("https://binbeacon.onrender.com/update-status", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(paket),
+	})
+		.then((response) => response.json())
+		.then((data) => console.log("Successupsas:", data))
+		.catch((error) => console.error("Error:", error));
 }
-updateStatus();
+updateStatus(); // function will be placed in html
  
 
-async function sendMarkersTDB() {
+async function sendMarkersTDB() { // corx cory type name and stts will be parameters
 	//e.preventDefault()
 	const dsata = {
 		corx: "24.963777459758134", // 24.963777459758134, 121.25707667724481
 		cory: "121.25707667724481", // tinggal implement user location
 		type: "Nor",
 		name: "YJ",
-		stts: "Halfway"
+		stts: "Full"
 	};
 
 	//const res = await fetch('http://localhost:3000/tambah-marker-user',{
@@ -200,7 +219,7 @@ async function sendMarkersTDB() {
 		.then((data) => console.log("Success:", data))
 		.catch((error) => console.error("Error:", error));
 }
-sendMarkersTDB();
+sendMarkersTDB(); // function will be placed in html
 
 // ------------------------------------------------------- OVERLAY BUTTON  -------------------------------------------------------
 const buttons = document.querySelectorAll(".btn");
