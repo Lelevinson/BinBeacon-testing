@@ -165,6 +165,59 @@ body {
 	pointer-events: none; /* Disable interaction */
 }
 
+.question-container {
+	margin-bottom: 20px;
+	display: flex;
+	align-items: center;
+}
+
+.question-text {
+	margin-right: 15px;
+	font-size: 18px;
+	font-weight: bold;
+	color: #333;
+}
+
+select {
+	padding: 10px;
+	font-size: 16px;
+	border: 2px solid #4caf50;
+	border-radius: 5px;
+	background-color: #fff;
+	color: #333;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+select:hover {
+	border-color: #45a049;
+}
+
+select:focus {
+	outline: none;
+	box-shadow: 0 0 5px rgba(0, 128, 0, 0.5);
+	border-color: #45a049;
+}
+
+option {
+	font-size: 16px;
+}
+
+.submit-button {
+	background-color: #4caf50;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+	transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+	background-color: #45a049;
+}
+
 /* The bottom side navigation menu */
 .templatenav {
 	height: 0;

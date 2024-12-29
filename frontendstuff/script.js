@@ -250,8 +250,8 @@ window.closeNavHeader = function () {
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 window.openNavInfo = function () {
-	document.getElementById("nav-info").style.height = "38vh";
-	document.getElementById("main").style.transform = "translateY(-38vh)";
+	document.getElementById("nav-info").style.height = "90vh";
+	document.getElementById("main").style.transform = "translateY(-90vh)";
 	document.getElementById("btn-header").classList.add("disabled");
 	document.getElementById("btn-add").classList.add("disabled");
 };
@@ -278,4 +278,20 @@ window.closeNavAdd = function () {
 	document.getElementById("main").style.transform = "translateY(0)";
 	document.getElementById("btn-header").classList.remove("disabled");
 	document.getElementById("btn-question").classList.remove("disabled");
+};
+
+window.storeValues = function () {
+	// Get the selected value of the first dropdown
+	var trashType = document.getElementById("trash-type").value;
+
+	// Get the selected value of the second dropdown
+	var trashStatus = document.getElementById("trash-status").value;
+
+	// Log the values to the console (or use them as needed)
+	console.log("Trash Type:", trashType);
+	console.log("Trash Status:", trashStatus);
+
+	// You can now use the variables trashType and trashStatus as needed
+	// For example, you can display them in an alert:
+	alert("Trash Type: " + trashType + "\nTrash Status: " + trashStatus);
 };

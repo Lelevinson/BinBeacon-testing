@@ -161,6 +161,32 @@
 							<span class="container-header-text">BinBeacon</span>
 						</h2>
 					</div>
+					<!-- Question 1 -->
+					<div class="question-container">
+						<label for="trash-type" class="question-text"
+							>What is the type of trash can?</label
+						>
+						<select id="trash-type">
+							<option value="recyclable">Recyclable</option>
+							<option value="non-recyclable">Non-Recyclable</option>
+							<option value="both">Both</option>
+						</select>
+					</div>
+
+					<!-- Question 2 -->
+					<div class="question-container">
+						<label for="trash-status" class="question-text"
+							>What is the status of the trash can?</label
+						>
+						<select id="trash-status">
+							<option value="full">Full</option>
+							<option value="half-full">Half-Full</option>
+							<option value="empty">Empty</option>
+						</select>
+					</div>
+
+					<!-- Submit Button -->
+					<button class="submit-button" onclick="storeValues()">Submit</button>
 				</div>
 			</div>
 			<div class="nav-template-right">
