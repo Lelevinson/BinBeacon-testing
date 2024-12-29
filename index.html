@@ -24,28 +24,7 @@
 	</head>
 
 	<body>
-		<!-- side nav 1 -->
-		<!-- <div id="nav-header" class="sidenav">
-			<a href="javascript:void(0)" class="closebtn" onclick="closeNavHeader()"
-				>&times;</a
-			>
-			<a href="#">About</a>
-			<a href="#">Services</a>
-			<a href="#">Clients</a>
-			<a href="#">Contact</a>
-		</div> -->
-		<!-- <div id="nav-template" class="templatenav">
-			<div class="nav-template-left"></div>
-			<div class="nav-template-right">
-				<div class="close-button-layer">
-					<img
-						src="frontendstuff/images/close.svg"
-						class="close-button"
-						onclick="closeNavTemplate()"
-					/>
-				</div>
-			</div>
-		</div> -->
+		<!-- side nav 1: HEADER -->
 		<div id="nav-header" class="templatenav">
 			<div class="nav-template-left"></div>
 			<div class="nav-template-right">
@@ -58,9 +37,116 @@
 				</div>
 			</div>
 		</div>
-		<!-- side nav 2 -->
+		<!-- side nav 2: INFORMATION -->
 		<div id="nav-info" class="templatenav">
-			<div class="nav-template-left"></div>
+			<div class="nav-template-left">
+				<!-- Information Section Content -->
+				<div class="info-container">
+					<div class="info-header">
+						<h2>About BinBeacon</h2>
+					</div>
+
+					<div class="info-content">
+						<section class="intro">
+							<h3>Website Introduction</h3>
+							<p>
+								BinBeacon is a map-based application designed to help users find
+								and locate trash bins in their area. Whether you're at a park,
+								university, or city, BinBeacon helps you find the nearest trash
+								can in a matter of seconds. The application also provides
+								additional features like customizing the map style, filtering
+								trash bins by type, and adding new bins to the map.
+							</p>
+						</section>
+
+						<section class="features">
+							<h3>Key Features</h3>
+							<ul>
+								<li>
+									<strong>Interactive Map</strong>: View a map with markers
+									showing the locations of nearby trash bins.
+								</li>
+								<li>
+									<strong>Live Location Marker</strong>: See your current
+									location on the map in real-time, helping you find the nearest
+									trash can with ease.
+								</li>
+								<li>
+									<strong>Filter Options</strong>: Customize the map view by
+									filtering trash bins based on categories like recycling,
+									general waste, etc.
+								</li>
+								<li>
+									<strong>Add New Bins</strong>: Users can add new trash bins to
+									the map, which will be stored in our backend database and
+									displayed for others to see.
+								</li>
+								<li>
+									<strong>Map Reset</strong>: If you scroll away from your
+									location, you can easily reset the map view to center on your
+									current location.
+								</li>
+							</ul>
+						</section>
+
+						<section class="technologies">
+							<h3>Technologies Used</h3>
+							<p>The website was built using the following technologies:</p>
+							<ul>
+								<li>
+									<strong>Frontend</strong>: HTML, CSS, JavaScript, Leaflet.js
+									(for interactive maps)
+								</li>
+								<li>
+									<strong>Backend</strong>: [Your backend technology] (e.g.,
+									Node.js, PHP, Python)
+								</li>
+								<li>
+									<strong>Database</strong>: [Your database type] (e.g., MySQL,
+									MongoDB)
+								</li>
+								<li>
+									<strong>Additional Tools</strong>: [Any other tools used]
+								</li>
+							</ul>
+						</section>
+
+						<section class="about-developers">
+							<h3>About the Developers</h3>
+							<p>
+								BinBeacon was developed by the 陈锦's, a group of second-year
+								web programming students. This project is part of our web
+								development coursework and demonstrates our understanding of
+								interactive maps, web design, and dynamic data management.
+							</p>
+						</section>
+
+						<section class="credits">
+							<h3>Credits</h3>
+							<p>
+								Special thanks to the Leaflet.js library for enabling us to
+								create interactive maps, and to all the open-source resources
+								that helped us bring BinBeacon to life.
+							</p>
+						</section>
+
+						<section class="contact">
+							<h3>Contact Information</h3>
+							<p>
+								If you have any questions or feedback, feel free to contact us
+								at
+								<a href="mailto:levinsonyzu@gmail.com">levinsonyzu@gmail.com</a>
+								or visit our GitHub repository at
+								<a
+									href="https://github.com/Lelevinson/BinBeacon-testing.git"
+									target="_blank"
+									>BinBeacon-testing</a
+								>.
+							</p>
+						</section>
+					</div>
+				</div>
+			</div>
 			<div class="nav-template-right">
 				<div class="close-button-layer">
 					<img
@@ -71,7 +157,7 @@
 				</div>
 			</div>
 		</div>
-		<!-- side nav 3 -->
+		<!-- side nav 3: ADD MARKER -->
 		<div id="nav-add" class="templatenav">
 			<div class="nav-template-left"></div>
 			<div class="nav-template-right">
@@ -85,7 +171,6 @@
 			</div>
 		</div>
 
-		<!-- Use any element to open the sidenav -->
 		<div id="header">
 			<img
 				src="frontendstuff/images/lighthouse-svgrepo-com.svg"

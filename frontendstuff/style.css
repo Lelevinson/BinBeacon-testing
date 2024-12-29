@@ -176,7 +176,8 @@ body {
 
 .nav-template-left {
 	flex-basis: 90%;
-	background-color: blue; /* use this to show the positon */
+	padding: 1em;
+	/* background-color: blue; use this to show the positon  */
 }
 
 .nav-template-right {
@@ -198,6 +199,58 @@ body {
 	height: auto;
 	width: auto;
 	cursor: pointer;
+}
+
+.info-header h2 {
+	text-align: center;
+	color: #333;
+	font-size: 2em;
+	margin-top: 2px;
+	margin-bottom: 20px;
+}
+
+.info-content {
+	line-height: 1.6;
+	color: #555;
+}
+
+.info-content section {
+	margin-bottom: 20px;
+}
+
+.info-content h3 {
+	color: hsla(129, 69%, 53%, 1);
+	font-size: 1.5em;
+	margin-bottom: 10px;
+}
+
+.info-content p {
+	font-size: 1.1em;
+	margin-bottom: 15px;
+}
+
+.info-content ul {
+	list-style-type: disc;
+	margin-left: 20px;
+}
+
+.info-content li {
+	font-size: 1.1em;
+	line-height: 1.6;
+	color: #555;
+}
+
+.info-content a {
+	color: hsla(129, 69%, 53%, 1);
+	text-decoration: none;
+}
+
+.info-content a:hover {
+	text-decoration: underline;
+}
+
+.info-content .contact a {
+	font-weight: bold;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
@@ -226,7 +279,7 @@ body {
 
 	.nav-template-left {
 		flex-basis: 85%;
-		background-color: blue; /* use this to show the positon */
+		/* background-color: blue; use this to show the positon  */
 	}
 
 	.nav-template-right {
@@ -249,4 +302,18 @@ body {
 		width: auto;
 		cursor: pointer;
 	}
+	/* FOR INFORMATION */
+	.info-header h2 {
+		font-size: 1.6em;
+	}
+
+	.info-content h3 {
+		font-size: 1.3em;
+	}
+
+	.info-content p,
+	.info-content li {
+		font-size: 1em;
+	}
+	/* FOR INFORMATION */
 }
