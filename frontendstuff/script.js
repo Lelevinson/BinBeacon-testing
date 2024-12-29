@@ -125,6 +125,7 @@ async function sort() {
 		{
 			minZoom: 0,
 			maxZoom: 20,
+			attribution: "© StadiaMap",
 			ext: "png", //removed attributions
 		}
 	);
@@ -134,6 +135,7 @@ async function sort() {
 		{
 			minZoom: 0,
 			maxZoom: 20,
+			attribution: "© StadiaMap",
 			ext: "png", //removed attributions
 		}
 	);
