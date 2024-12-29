@@ -149,6 +149,22 @@ body {
 	width: 90%;
 }
 
+#btn-header.disabled {
+	pointer-events: none; /* Disable interaction */
+}
+
+#btn-question.disabled {
+	background-color: #aaa;
+	opacity: 0.7; /* Dim the button for mobile users */
+	pointer-events: none; /* Disable interaction */
+}
+
+#btn-add.disabled {
+	background-color: #aaa;
+	opacity: 0.7; /* Dim the button for mobile users */
+	pointer-events: none; /* Disable interaction */
+}
+
 /* The bottom side navigation menu */
 .templatenav {
 	height: 0;

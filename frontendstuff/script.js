@@ -234,36 +234,48 @@ for (let i = 0; i < buttons.length; i++) {
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 window.openNavHeader = function () {
-	document.getElementById("nav-header").style.height = "250px";
-	document.getElementById("main").style.transform = "translateY(-250px)";
+	document.getElementById("nav-header").style.height = "38vh";
+	document.getElementById("main").style.transform = "translateY(-38vh)";
+	document.getElementById("btn-question").classList.add("disabled");
+	document.getElementById("btn-add").classList.add("disabled");
 };
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
 window.closeNavHeader = function () {
 	document.getElementById("nav-header").style.height = "0";
 	document.getElementById("main").style.transform = "translateY(0)";
+	document.getElementById("btn-question").classList.remove("disabled");
+	document.getElementById("btn-add").classList.remove("disabled");
 };
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 window.openNavInfo = function () {
-	document.getElementById("nav-info").style.height = "250px";
-	document.getElementById("main").style.transform = "translateY(-250px)";
+	document.getElementById("nav-info").style.height = "38vh";
+	document.getElementById("main").style.transform = "translateY(-38vh)";
+	document.getElementById("btn-header").classList.add("disabled");
+	document.getElementById("btn-add").classList.add("disabled");
 };
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
 window.closeNavInfo = function () {
 	document.getElementById("nav-info").style.height = "0";
 	document.getElementById("main").style.transform = "translateY(0)";
+	document.getElementById("btn-header").classList.remove("disabled");
+	document.getElementById("btn-add").classList.remove("disabled");
 };
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 window.openNavAdd = function () {
-	document.getElementById("nav-add").style.height = "250px";
-	document.getElementById("main").style.transform = "translateY(-250px)";
+	document.getElementById("nav-add").style.height = "38vh";
+	document.getElementById("main").style.transform = "translateY(-38vh)";
+	document.getElementById("btn-header").classList.add("disabled");
+	document.getElementById("btn-question").classList.add("disabled");
 };
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
 window.closeNavAdd = function () {
 	document.getElementById("nav-add").style.height = "0";
 	document.getElementById("main").style.transform = "translateY(0)";
+	document.getElementById("btn-header").classList.remove("disabled");
+	document.getElementById("btn-question").classList.remove("disabled");
 };
