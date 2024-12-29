@@ -200,12 +200,18 @@ body {
 	cursor: pointer;
 }
 
-.info-header h2 {
+.container-header h2 {
 	text-align: center;
 	color: #333;
 	font-size: 2em;
 	margin-top: 2px;
 	margin-bottom: 20px;
+}
+
+.container-header .container-header-text {
+	font-family: "Chewy", sans-serif;
+	font-size: 1.1em;
+	color: hsla(129, 69%, 53%, 1);
 }
 
 .info-content {
@@ -272,7 +278,7 @@ body {
 	}
 
 	/* FOR INFORMATION */
-	.info-header h2 {
+	.container-header h2 {
 		font-size: 1.6em;
 		margin-top: 0px;
 		text-align: start;
