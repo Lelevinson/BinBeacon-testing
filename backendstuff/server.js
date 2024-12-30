@@ -32,7 +32,7 @@ app.get("/configsta", (req, res) => {
 //------------------------------------------------------------------------------
 app.post("/tambah-marker-user", async (req, res) => {
 	const { corx, cory, type, name, stts } = req.body;
-	console.log(type, cory);
+	console.log(name, type, cory);
 
 	try {
 		await addingMarkersTDB(corx, cory, type, name, stts);
