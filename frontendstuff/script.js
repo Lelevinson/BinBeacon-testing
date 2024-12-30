@@ -234,7 +234,7 @@ for (let i = 0; i < buttons.length; i++) {
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 window.openNavHeader = function () {
-	document.getElementById("nav-header").style.height = "39%";
+	document.getElementById("nav-header").style.height = "38%";
 	document.getElementById("main").style.transform = "translateY(-38%)";
 	document.getElementById("btn-question").classList.add("disabled");
 	document.getElementById("btn-add").classList.add("disabled");
@@ -266,8 +266,8 @@ window.closeNavInfo = function () {
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 window.openNavAdd = function () {
-	document.getElementById("nav-add").style.height = "39%";
-	document.getElementById("main").style.transform = "translateY(-39%)";
+	document.getElementById("nav-add").style.height = "38%";
+	document.getElementById("main").style.transform = "translateY(-38%)";
 	document.getElementById("btn-header").classList.add("disabled");
 	document.getElementById("btn-question").classList.add("disabled");
 };
