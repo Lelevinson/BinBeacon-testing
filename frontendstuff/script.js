@@ -197,16 +197,17 @@ async function updateStatus() {
 }
 updateStatus(); // function will be placed in html
 
-async function sendMarkersTDB() {
+async function sendMarkersTDB(name, corx, cory, type, stts) {
 	// corx cory type name and stts will be parameters
 	//e.preventDefault()
-	const dsata = {
+	/*const dsata = {
 		corx: "24.963777459758134", // 24.963777459758134, 121.25707667724481
 		cory: "121.25707667724481", // tinggal implement user location
 		type: "Nor",
 		name: "YJ",
 		stts: "Full",
-	};
+	};*/
+	const dsata = {corx, cory, type, name, stts};
 
 	//const res = await fetch('http://localhost:3000/tambah-marker-user',{
 	const res = await fetch("https://binbeacon.onrender.com/tambah-marker-user", {
@@ -287,9 +288,16 @@ window.storeValues = function () {
 	// Get the selected value of the second dropdown
 	var trashStatus = document.getElementById("trash-status").value;
 
+	var name = null; // change in html
+	var lati = userLatLng.lat;
+	var long = userLatLng.lng;
+
 	// Log the values to the console (or use them as needed)
 	console.log("Trash Type:", trashType);
 	console.log("Trash Status:", trashStatus);
+
+	//sending value to function -> server -> databse
+	sendMarkersTDB(name, lati, long, trashType, trashStatus)
 
 	// You can now use the variables trashType and trashStatus as needed
 	// For example, you can display them in an alert:
