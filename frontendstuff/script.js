@@ -219,7 +219,7 @@ async function sendMarkersTDB(name, corx, cory, type, stts) {
 		body: JSON.stringify(dsata),
 	});
 
-		const data = res.json()
+		const data = await res.json()
 
 		if (res.ok) {
 			console.log("Success:", data);
