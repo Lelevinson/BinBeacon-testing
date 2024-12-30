@@ -218,8 +218,8 @@ async function sendMarkersTDB(name, corx, cory, type, stts) {
 		body: JSON.stringify(dsata),
 	})
 		.then((response) => response.json())
-		.then((data) => console.log("Success:", data))
-		.catch((error) => console.error("Error:", error));
+		.then((data) => console.log("Success:", data), alert("Sucess: Marker added. Please refresh"))
+		.catch((error) => console.error("Error:", error), alert("Error: Failed to add marker"));
 }
 sendMarkersTDB(); // function will be placed in html
 
