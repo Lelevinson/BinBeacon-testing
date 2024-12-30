@@ -250,8 +250,8 @@ window.closeNavHeader = function () {
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 window.openNavInfo = function () {
-	document.getElementById("nav-info").style.height = "38vh";
-	document.getElementById("main").style.transform = "translateY(-38vh)";
+	document.getElementById("nav-info").style.height = "90vh";
+	document.getElementById("main").style.transform = "translateY(-90vh)";
 	document.getElementById("btn-header").classList.add("disabled");
 	document.getElementById("btn-add").classList.add("disabled");
 };
