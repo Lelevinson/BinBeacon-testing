@@ -198,6 +198,8 @@ async function updateStatus() {
 updateStatus(); // function will be placed in html
 
 async function sendMarkersTDB(name, corx, cory, type, stts) {
+	
+	try{
 	// corx cory type name and stts will be parameters
 	//e.preventDefault()
 	/*const dsata = {
@@ -216,10 +218,24 @@ async function sendMarkersTDB(name, corx, cory, type, stts) {
 			"Content-Type": "application/json",
 		},
 		body: JSON.stringify(dsata),
-	})
+	})	
 		.then((response) => response.json())
 		.then((data) => console.log("Success:", data), alert("Sucess: Marker added. Please refresh"))
 		.catch((error) => console.error("Error:", error), alert("Error: Failed to add marker"));
+
+		const data = res.json()
+		
+		if (res.ok) {
+			console.log("Success:", data);
+			alert("Success: Marker added. Please refresh.");
+		  } else {
+			console.error("Error:", data);
+			alert("Error: Failed to add marker.");
+		  }
+		} catch (error) {
+		  console.error("Error:", error);
+		  alert("Error: Failed to add marker due to a network issue.");
+		}
 }
 sendMarkersTDB(); // function will be placed in html
 
