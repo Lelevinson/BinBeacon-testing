@@ -275,6 +275,10 @@ body {
 	font-weight: bold;
 }
 
+.info-content .features .hidden-features {
+	color: hsla(129, 69%, 53%, 1);
+}
+
 /* FOR ADD MARKER */
 .question-container {
 	margin-bottom: 20px;
