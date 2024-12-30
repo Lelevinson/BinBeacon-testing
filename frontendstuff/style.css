@@ -61,7 +61,7 @@ body {
 	align-items: center;
 	gap: 1em;
 
-	height: 10vh;
+	height: 10%;
 	width: 100%;
 	background-color: hsla(129, 69%, 53%, 1);
 	z-index: 10;
