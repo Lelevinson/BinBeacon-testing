@@ -1,5 +1,8 @@
 import { RecBin, TwoBin, NorBin } from "./classes.js";
 
+const link = "http://localhost:3000"; // for dev
+//const link = "https://binbeacon.onrender.com";
+
 var bound1 = L.latLng(24.962957038371627, 121.27488024265767),
 	bound2 = L.latLng(24.985034349532995, 121.2425501121096),
 	bound = L.latLngBounds(bound1, bound2); // to set the bounds of the map to only NEILI.
@@ -14,8 +17,7 @@ var osm = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 var stadiapi;
 async function fetchAPI() {
 	try {
-		//const response = await fetch('http://localhost:3000/configsta') // jadi karena port itu 5500 dia malah ke config situ, bukan ke port 3000. `${backendBaseURL}/config`
-		const response = await fetch("https://binbeacon.onrender.com/configsta");
+		const response = await fetch(`${link}/configsta`);
 		const data = await response.json();
 		//backendURL = data.port;
 		stadiapi = data;
@@ -75,8 +77,7 @@ let databaseArr = [];
 //	Fetching data from the server
 async function fetchCoords() {
 	try {
-		//const response = await fetch('http://localhost:3000/ambil-marker'); //switch antara 3000 dan render saat lg di develop
-		const response = await fetch("https://binbeacon.onrender.com/ambil-marker");
+		const response = await fetch(`${link}/ambil-marker`);
 
 		if (!response.ok) {
 			throw new Error("Failed to get coords");
@@ -183,8 +184,7 @@ async function updateStatus() {
 		stts: situasi,
 	};
 
-	//const res = await fetch('http://localhost:3000/update-status', {
-	const res = await fetch("https://binbeacon.onrender.com/update-status", {
+	const res = await fetch(`${link}/update-status`, {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -210,8 +210,7 @@ async function sendMarkersTDB(name, corx, cory, type, stts) {
 	};*/
 	const dsata = {corx, cory, type, name, stts};
 
-	//const res = await fetch('http://localhost:3000/tambah-marker-user',{
-	const res = await fetch("https://binbeacon.onrender.com/tambah-marker-user", {
+	const res = await fetch(`${link}/tambah-marker-user`, {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -222,10 +221,10 @@ async function sendMarkersTDB(name, corx, cory, type, stts) {
 		const data = await res.json()
 
 		if (res.ok) {
-			console.log("Success:", data);
+			console.log("Successaddmarker:", data);
 			alert("Success: Marker added. Please refresh.");
 		  } else {
-			console.error("Error:", data);
+			console.error("Erroraddmarker:", data);
 			alert("Error: Failed to add marker.");
 		  }
 		} catch (error) {
@@ -233,7 +232,6 @@ async function sendMarkersTDB(name, corx, cory, type, stts) {
 		  alert("Error: Failed to add marker due to a network issue.");
 		}
 }
-sendMarkersTDB(); // function will be placed in html
 
 // ------------------------------------------------------- OVERLAY BUTTON  -------------------------------------------------------
 const buttons = document.querySelectorAll(".btn");
