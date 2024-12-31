@@ -302,14 +302,19 @@ window.storeValues = function () {
 	var lati = userLatLng.lat;
 	var long = userLatLng.lng;
 
-	// Log the values to the console (or use them as needed)
-	console.log("Trash Type:", trashType);
-	console.log("Trash Status:", trashStatus);
+	if (trashType && trashStatus) {
+		// to ensure user to select the type and status before submitting
+		// Log the values to the console (or use them as needed)
+		console.log("Trash Type:", trashType);
+		console.log("Trash Status:", trashStatus);
 
-	//sending value to function -> server -> databse
-	sendMarkersTDB(name, lati, long, trashType, trashStatus);
+		//sending value to function -> server -> databse
+		sendMarkersTDB(name, lati, long, trashType, trashStatus);
 
-	// You can now use the variables trashType and trashStatus as needed
-	// For example, you can display them in an alert:
-	alert("Trash Type: " + trashType + "\nTrash Status: " + trashStatus);
+		// You can now use the variables trashType and trashStatus as needed
+		// For example, you can display them in an alert:
+		alert("Trash Type: " + trashType + "\nTrash Status: " + trashStatus);
+	} else {
+		alert("Please make sure to select both trash type and trash status.");
+	}
 };

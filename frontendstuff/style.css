@@ -314,6 +314,10 @@ select:focus {
 	border-color: #45a049;
 }
 
+select:invalid {
+	color: gray; /* Placeholder text color */
+}
+
 option {
 	font-size: 16px;
 }
@@ -369,7 +373,7 @@ option {
 	}
 	/* FOR ADD MARKER */
 	.question-text {
-		font-size: 1.1em;
+		font-size: 1em;
 	}
 
 	select {

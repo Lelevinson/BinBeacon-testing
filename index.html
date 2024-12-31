@@ -110,7 +110,10 @@
 									<strong>Frontend</strong>: HTML, CSS, JavaScript, Leaflet.js
 									(for interactive maps)
 								</li>
-								<li><strong>Backend</strong>: Node.js, Render</li>
+								<li>
+									<strong>Backend</strong>: Node.js, Render (server), Vercel
+									(hosting)
+								</li>
 								<li><strong>Database</strong>: Supabase</li>
 							</ul>
 						</section>
@@ -174,9 +177,12 @@
 					<!-- Question 1 -->
 					<div class="question-container">
 						<label for="trash-type" class="question-text"
-							>What is the type of trash can?</label
+							>What is the type of the trash can?</label
 						>
-						<select id="trash-type">
+						<select id="trash-type" required>
+							<option value="" disabled selected hidden>
+								(Click to select)
+							</option>
 							<option value="Rec">Recyclable</option>
 							<option value="Nor">Non-Recyclable</option>
 							<option value="Two">Both</option>
@@ -188,7 +194,10 @@
 						<label for="trash-status" class="question-text"
 							>What is the status of the trash can?</label
 						>
-						<select id="trash-status">
+						<select id="trash-status" required>
+							<option value="" disabled selected hidden>
+								(Click to select)
+							</option>
 							<option value="Full">Full</option>
 							<option value="Halfway">Half-Full</option>
 							<option value="Empty">Empty</option>
