@@ -25,7 +25,7 @@ async function receiveName(e, marker) {
 				<center>Status: ${keadaan}</center>` // add button in the future
 			)
 		)
-		.openPopup();
+		//.openPopup();
 	} else{
 		marker
 		.bindPopup(
@@ -37,7 +37,7 @@ async function receiveName(e, marker) {
 				`<center>Status: ${keadaan}</center>` // add button in the future
 			)
 		)
-		.openPopup();
+		//.openPopup();
 	}
 }
 
