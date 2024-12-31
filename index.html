@@ -63,12 +63,54 @@
 								BinBeacon is a map-based application designed to help users find
 								and locate trash bins in area around Neili (currently). Whether
 								you're at XingRen park, YuanZe university, or dormitory,
-								BinBeacon helps you find the nearest trash can in a matter of
+								BinBeacon helps you find the nearest trash bin in a matter of
 								seconds. The application also provides additional features like
 								customizing the map style, filtering trash bins by type, and
 								adding new bins to the map, you can even check and update the
 								status of each bin!
 							</p>
+						</section>
+
+						<section class="bin-legends">
+							<h3>Map Icons and Legends</h3>
+							<p>
+								On the map, you'll see various markers representing different
+								things. Here's what each icon represents:
+							</p>
+							<ul>
+								<li>
+									<img
+										src="/frontendstuff/images/recyclablemarker.png"
+										alt="Recyclable Bin Icon"
+										class="legend-icon"
+									/>
+									<strong class="hidden-features">Recyclable Bin</strong>
+								</li>
+								<li>
+									<img
+										src="/frontendstuff/images/nonrecyclablemarker.png"
+										alt="Non-Recyclable Bin Icon"
+										class="legend-icon"
+									/>
+									<strong class="hidden-features">Non-Recyclable Bin</strong>
+								</li>
+								<li>
+									<img
+										src="/frontendstuff/images/twobinmarker.png"
+										alt="Both Recyclable and Non-Recyclable Bin Icon"
+										class="legend-icon"
+									/>
+									<strong class="hidden-features">Both</strong>
+								</li>
+								<li>
+									<img
+										src="/frontendstuff/images/userlocmarker.gif"
+										alt="Live Location Icon"
+										class="legend-icon-user"
+									/>
+									<strong class="hidden-features">Live Location</strong>
+								</li>
+							</ul>
 						</section>
 
 						<section class="features">
@@ -82,7 +124,7 @@
 								<li>
 									<strong>Live Location Marker</strong>: See your current
 									location on the map in real-time, helping you find the nearest
-									trash can with ease.
+									trash bin with ease.
 								</li>
 								<li>
 									<strong>Filter Options</strong>: Customize the map view by
@@ -247,7 +289,12 @@
 					<div id="btn-question" class="btn" onclick="openNavInfo()">
 						<img src="frontendstuff/images/info.svg" class="info-image" />
 					</div>
-					<div id="btn-add" class="btn" onclick="openNavAdd()" data-action="reset-zoom-foradd">
+					<div
+						id="btn-add"
+						class="btn"
+						onclick="openNavAdd()"
+						data-action="reset-zoom-foradd"
+					>
 						<img src="frontendstuff/images/add.svg" class="add-image" />
 					</div>
 					<div id="btn-reset" class="btn" data-action="reset-zoom">

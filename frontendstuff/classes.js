@@ -13,31 +13,31 @@ async function receiveName(e, marker) {
 	var tipe = data.bintype; // taro if disini
 	//console.log(`the coords are${x}, ${y}, name ${nama}`)
 
-	if(nama != null){
+	if (nama != null) {
 		marker
-		.bindPopup(
-			L.popup({
-				maxWidth: 300,
-				maxHeight: 300,
-				closeButton: true,
-			}).setContent(
-				`<center>${nama} marker ${tipe}</center>
+			.bindPopup(
+				L.popup({
+					maxWidth: 300,
+					maxHeight: 300,
+					closeButton: true,
+				}).setContent(
+					`<center>${nama} marker ${tipe}</center>
 				<center>Status: ${keadaan}</center>` // add button in the future
+				)
 			)
-		)
-		//.openPopup();
-	} else{
+			.openPopup();
+	} else {
 		marker
-		.bindPopup(
-			L.popup({
-				maxWidth: 300,
-				maxHeight: 300,
-				closeButton: true,
-			}).setContent(
-				`<center>Status: ${keadaan}</center>` // add button in the future
+			.bindPopup(
+				L.popup({
+					maxWidth: 300,
+					maxHeight: 300,
+					closeButton: true,
+				}).setContent(
+					`<center>Status: ${keadaan}</center>` // add button in the future
+				)
 			)
-		)
-		//.openPopup();
+			.openPopup();
 	}
 }
 

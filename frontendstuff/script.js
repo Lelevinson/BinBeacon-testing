@@ -1,7 +1,7 @@
 import { RecBin, TwoBin, NorBin } from "./classes.js";
 
-const link = "http://localhost:3000"; // for dev
-//const link = "https://binbeacon.onrender.com";
+/* const link = "http://localhost:3000"; */ // for dev
+const link = "https://binbeacon.onrender.com";
 
 var bound1 = L.latLng(24.962957038371627, 121.27488024265767),
 	bound2 = L.latLng(24.985034349532995, 121.2425501121096),
@@ -52,21 +52,23 @@ var map = L.map("map", {
 					iconUrl: "/frontendstuff/images/userlocmarker.gif",
 					iconSize: [57, 57], // original size 3737
 					iconAnchor: [19, 26],
-					popupAnchor: [9,-20],
+					popupAnchor: [10, -20],
 				}),
 				alt: "user marker",
 				title: "you are here!",
 				riseOnHover: true,
-			}).addTo(map)
-			.bindPopup(
-			L.popup({
-				maxWidth: 300,
-				maxHeight: 300,
-				closeButton: true,
-			}).setContent(
-				`<center>You are here!</center>` // add button in the future
-			)
-		);
+			})
+				.addTo(map)
+				.bindPopup(
+					L.popup({
+						maxWidth: 300,
+						maxHeight: 300,
+						closeButton: true,
+					}).setContent(
+						`<center>You are here!</center>` // add button in the future
+					)
+				)
+				.openPopup();
 		} else {
 			userMarker.setLatLng(e.latlng);
 		}
@@ -106,7 +108,7 @@ fetchCoords();
 async function sort() {
 	await fetchCoords();
 	await fetchAPI();
-	console.log("done fetching from fetchCoords:")//, databaseArr[0].bintype);
+	console.log("done fetching from fetchCoords:"); //, databaseArr[0].bintype);
 
 	for (let i = 0; i < databaseArr.length; i++) {
 		if (databaseArr[i].bintype === "Rec") {
@@ -246,15 +248,14 @@ async function sendMarkersTDB(name, corx, cory, type, stts) {
 // ------------------------------------------------------- OVERLAY BUTTON  -------------------------------------------------------
 const buttons = document.querySelectorAll(".btn");
 for (let i = 0; i < buttons.length; i++) {
-	if (buttons[i].getAttribute("data-action") === "reset-zoom") { 
+	if (buttons[i].getAttribute("data-action") === "reset-zoom") {
 		buttons[i].addEventListener("click", function () {
 			map.setView([userLatLng.lat, userLatLng.lng], 18);
 		});
-	}
-	else if (buttons[i].getAttribute("data-action") === "reset-zoom-foradd") { 
-			buttons[i].addEventListener("click", function () {
-				map.setView([userLatLng.lat + 0.001, userLatLng.lng], 18); // + 0.001 to account for map being pushed up
-			});
+	} else if (buttons[i].getAttribute("data-action") === "reset-zoom-foradd") {
+		buttons[i].addEventListener("click", function () {
+			map.setView([userLatLng.lat + 0.001, userLatLng.lng], 18); // + 0.001 to account for map being pushed up
+		});
 	}
 }
 
