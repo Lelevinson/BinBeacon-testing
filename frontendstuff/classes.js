@@ -1,5 +1,6 @@
 //	Classes of Bins
 import { sendName } from "./script.js";
+import { updateStatus } from "./script.js";
 //import { updatebinstatusfunction } from "./script.js"
 
 async function receiveName(e, marker) {
@@ -10,64 +11,34 @@ async function receiveName(e, marker) {
 	//if(nama != null)
 	var nama = data.name;
 	var keadaan = data.stts;
-	var tipe = data.bintype; // taro if disini
+	var tipe = data.bintype; // taro if rec then recyclable nnti disini
 	//console.log(`the coords are${x}, ${y}, name ${nama}`)
-
-	if (nama != null) {
 		marker
 			.bindPopup(
 				L.popup({
 					maxWidth: 300,
 					maxHeight: 300,
 					closeButton: true,
-				}).setContent(
-					`
+				}).setContent(`
 					<html>
-					<center>${nama} marker ${tipe}</center>
-					<center>Status: ${keadaan}</center>
-					<label for="trash-status" class="question-text">What is the status of the trash can?</label>
-						<select id="trash-status" required>
-							<option value="" disabled selected hidden>
-								(Click to select)
-							</option>
-							<option value="Full">Full</option>
-							<option value="Halfway">Half-Full</option>
-							<option value="Empty">Empty</option>
-						</select>
-						<button class="submit-button" onclick="storeValues()">Submit</button>
+						<center>${nama ? `Marker of ${nama}`: ""}</center>
+						<center>Type: ${tipe} </center>
+						<center>Status: ${keadaan}</center>
+						<label for="trash-status" class="question-text">What is the status of the trash can?</label>
+							<select id="trash-status" required>
+								<option value="" disabled selected hidden>
+									(Click to select)
+								</option>
+								<option value="Full">Full</option>
+								<option value="Halfway">Half-Full</option>
+								<option value="Empty">Empty</option>
+							</select>
+							<button class="submit-button" onclick="storeUpdates(${x}, ${y})">Submit</button>
 					</html>
-					` // add button in the future
-				)
+				`)
 			)
 			.openPopup();
-	} else {
-		marker
-			.bindPopup(
-				L.popup({
-					maxWidth: 300,
-					maxHeight: 300,
-					closeButton: true,
-				}).setContent(
-					`
-					<html>
-					<center>Status: ${keadaan}</center>
-					<label for="trash-status" class="question-text">What is the status of the trash can?</label>
-						<select id="trash-status" required>
-							<option value="" disabled selected hidden>
-								(Click to select)
-							</option>
-							<option value="Full">Full</option>
-							<option value="Halfway">Half-Full</option>
-							<option value="Empty">Empty</option>
-						</select>
-						<button class="submit-button" onclick="storeValues()">Submit</button>
-					</html>
-					` // add button in the future
-				)
-			)
-			.openPopup();
-	}
-}
+} 
 
 export class RecBin {
 	constructor(locationX, locationY, map) {

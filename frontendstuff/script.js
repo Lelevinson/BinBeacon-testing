@@ -1,7 +1,7 @@
 import { RecBin, TwoBin, NorBin } from "./classes.js";
 
-/* const link = "http://localhost:3000"; */ // for dev
-const link = "https://binbeacon.onrender.com";
+const link = "http://localhost:3000"; // for dev
+// const link = "https://binbeacon.onrender.com";
 
 var bound1 = L.latLng(25.106288100893295, 120.9759308009306),
 	bound2 = L.latLng(24.831228415449402, 121.31616523126553),
@@ -180,22 +180,21 @@ async function sendName(x, y) {
 }
 export { sendName };
 
-async function updateStatus() {
+async function updateStatus(x, y, updateValue) {
 	// x and y will be parameters and will get them from classes.js
 	await fetchCoords();
 	const { data, error } = await supabase;
-	var x = 24.963777459758134;
-	var y = 121.25707667724481;
 
 	//var hasil = databaseArr.find(row => row.corx === x && row.cory === y);
-	var situasi = "Empty"; //hasil.stts;
+	//var updateValue = document.getElementById("trash-status").value;
 	//habis itu situasi ini dikirim ke html terus user bakal dikasi 2 pilihan gt
 	const paket = {
-		corx: x,
-		cory: y,
-		stts: situasi,
+		x,
+		y,
+		updateValue,
 	};
 
+	console.log("sampe ke upstats", updateValue);
 	const res = await fetch(`${link}/update-status`, {
 		method: "POST",
 		headers: {
@@ -207,7 +206,7 @@ async function updateStatus() {
 		.then((data) => console.log("Successupsas:", data))
 		.catch((error) => console.error("Error:", error));
 }
-updateStatus(); // function will be placed in html
+export { updateStatus }; // function will be placed in html
 
 async function sendMarkersTDB(name, corx, cory, type, stts) {
 	try {
@@ -343,3 +342,73 @@ window.storeValues = function () {
 		alert("Please make sure to select both trash type and trash status.");
 	}
 };
+
+window.storeUpdates = function (x, y) {
+
+	var updateValue = document.getElementById("trash-status").value;
+	//if(updateValue === sm kyk value sblmnya)
+	//	then alert error
+	console.log("sampe ke stor", updateValue,x,y);
+	updateStatus(x, y, updateValue);
+}
+
+
+
+
+/*seems like i cant get the value for one of the options
+
+//	Classes of Bins
+import { sendName } from "./script.js";
+import { updateStatus } from "./script.js";
+//import { updatebinstatusfunction } from "./script.js"
+
+async function receiveName(e, marker) {
+	var x = e.latlng.lat;
+	var y = e.latlng.lng;
+	var data = await sendName(x, y);
+	console.log("dataadalah: ", data);
+	//if(nama != null)
+	var nama = data.name;
+	var keadaan = data.stts;
+	var tipe = data.bintype; // taro if rec then recyclable nnti disini
+	//console.log(the coords are${x}, ${y}, name ${nama})
+		marker
+			.bindPopup(
+				L.popup({
+					maxWidth: 300,
+					maxHeight: 300,
+					closeButton: true,
+				}).setContent(
+					<html>
+						<center>${nama ? Marker of ${nama}: ""}</center>
+						<center>Type: ${tipe} </center>
+						<center>Status: ${keadaan}</center>
+						<label for="trash-status" class="question-text">What is the status of the trash can?</label>
+							<select id="trash-status" required>
+								<option value="" disabled selected hidden>
+									(Click to select)
+								</option>
+								<option value="Full">Full</option>
+								<option value="Halfway">Half-Full</option>
+								<option value="Empty">Empty</option>
+							</select>
+							<button class="submit-button" onclick="storeUpdates(${x}, ${y})">Submit</button>
+					</html>
+				)
+			)
+			.openPopup();
+} 
+
+and here is the code in script.js
+
+window.storeUpdates = function (x, y) {
+
+	var updateValue = document.getElementById("trash-status").value;
+	//if(updateValue === sm kyk value sblmnya)
+	//	then alert error
+	console.log("sampe ke stor", updateValue,x,y);
+	updateStatus(x, y, updateValue);
+}
+
+i have checked that the options do show up and the button does click. the storeUpdates also could get the x adn y coordiinates but it did not get the value of trash-status
+*/

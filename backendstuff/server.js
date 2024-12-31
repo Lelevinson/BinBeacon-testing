@@ -45,7 +45,7 @@ app.post("/update-status", async (req, res) => {
 	const { corx, cory, stts } = req.body;
 
 	try {
-		await updateStatus(corx, cory, stts);
+		await renewStatus(corx, cory, stts);
 		res.json("stts anjuser received");
 	} catch (error) {
 		res.json("gbs lihat status");
@@ -95,7 +95,7 @@ const addingMarkersTDB = async (x, y, tipe, nama, stats) => {
 };
 //------------------------------------------------------------------------------
 
-async function updateStatus(x, y, stts) {
+async function renewStatus(x, y, stts) {
 	//console.log("stts adalh:", stts);
 	const { data, error } = await supabase
 		.from("markers1")
