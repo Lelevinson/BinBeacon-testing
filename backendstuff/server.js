@@ -82,9 +82,9 @@ const addingMarkersTDB = async (x, y, tipe, nama, stats) => {
 		});
 
 		console.log("hrsnya oke");
-		if (markers1) {
+		/*if (markers1) {
 			console.log(markers1);
-		}
+		}*/
 
 		if (error) {
 			console.log("supaerror", error);
@@ -97,7 +97,7 @@ const addingMarkersTDB = async (x, y, tipe, nama, stats) => {
 //------------------------------------------------------------------------------
 
 async function updateStatus(x, y, stts) {
-	console.log("settes adalh:", stts);
+	//console.log("stts adalh:", stts);
 	const { data, error } = await supabase
 		.from("markers1")
 		.update({ status: stts })

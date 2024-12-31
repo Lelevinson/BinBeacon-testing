@@ -11,7 +11,8 @@ async function receiveName(e, marker) {
 	var keadaan = data.stts;
 	//console.log(`the coords are${x}, ${y}, name ${nama}`)
 
-	marker
+	if(nama != null){
+		marker
 		.bindPopup(
 			L.popup({
 				maxWidth: 300,
@@ -23,6 +24,19 @@ async function receiveName(e, marker) {
 			)
 		)
 		.openPopup();
+	} else{
+		marker
+		.bindPopup(
+			L.popup({
+				maxWidth: 300,
+				maxHeight: 300,
+				closeButton: true,
+			}).setContent(
+				`<center>Status: ${keadaan}</center>` // add button in the future
+			)
+		)
+		.openPopup();
+	}
 }
 
 export class RecBin {

@@ -1,7 +1,7 @@
 import { RecBin, TwoBin, NorBin } from "./classes.js";
 
-//const link = "http://localhost:3000"; // for dev
-const link = "https://binbeacon.onrender.com";
+const link = "http://localhost:3000"; // for dev
+//const link = "https://binbeacon.onrender.com";
 
 var bound1 = L.latLng(24.962957038371627, 121.27488024265767),
 	bound2 = L.latLng(24.985034349532995, 121.2425501121096),
@@ -85,7 +85,7 @@ async function fetchCoords() {
 
 		const data = await response.json();
 		databaseArr = data;
-		console.log("fetchcoordsshit: ", databaseArr);
+		//console.log("fetchcoordsshit: ", databaseArr);
 	} catch (error) {
 		console.error(error);
 	}
@@ -96,7 +96,7 @@ fetchCoords();
 async function sort() {
 	await fetchCoords();
 	await fetchAPI();
-	console.log("done fetching from fetchCoords:", databaseArr[0].bintype);
+	console.log("done fetching from fetchCoords:")//, databaseArr[0].bintype);
 
 	for (let i = 0; i < databaseArr.length; i++) {
 		if (databaseArr[i].bintype === "Rec") {
@@ -293,7 +293,7 @@ window.closeNavAdd = function () {
 
 window.storeValues = function () {
 	// Get the selected value of the first dropdown
-	var userName = document.getElementById("userName").value || "null"; // Default to "null" if empty
+	var userName = document.getElementById("userName").value || null; // Default to "null" if empty
 
 	// Get the selected value of the second dropdown
 	var trashType = document.getElementById("trash-type").value;
