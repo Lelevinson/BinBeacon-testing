@@ -30,6 +30,7 @@ Percentage (%):
 /* #53c951 color for buttons */
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,600;1,600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chewy&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Mogra&display=swap');
 
 * {
 	box-sizing: border-box;
@@ -50,7 +51,7 @@ Percentage (%):
 html,
 body {
 	height: 100%;
-	font-family: "Raleway", "Chewy", sans-serif;
+	font-family: "Raleway", "Chewy", "Mogra", sans-serif;
 	overflow: hidden;
 }
 

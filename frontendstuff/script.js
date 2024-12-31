@@ -50,7 +50,7 @@ var map = L.map("map", {
 			userMarker = new L.marker(e.latlng, {
 				icon: L.icon({
 					iconUrl: "/frontendstuff/images/userlocmarker.gif",
-					iconSize: [58, 58], // original size 3737
+					iconSize: [57, 57], // original size 3737
 					iconAnchor: [19, 26],
 				}),
 				alt: "user marker",
@@ -243,7 +243,7 @@ for (let i = 0; i < buttons.length; i++) {
 	}
 	else if (buttons[i].getAttribute("data-action") === "reset-zoom-foradd") { 
 			buttons[i].addEventListener("click", function () {
-				map.setView([userLatLng.lat + 0.001, userLatLng.lng], 18); // + 0.001 to adjust for map being pushed up
+				map.setView([userLatLng.lat + 0.001, userLatLng.lng], 18); // + 0.001 to account for map being pushed up
 			});
 	}
 }

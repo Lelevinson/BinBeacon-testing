@@ -7,8 +7,10 @@ async function receiveName(e, marker) {
 	var y = e.latlng.lng;
 	var data = await sendName(x, y);
 	console.log("dataadalah: ", data);
+	//if(nama != null)
 	var nama = data.name;
 	var keadaan = data.stts;
+	var tipe = data.bintype; // taro if disini
 	//console.log(`the coords are${x}, ${y}, name ${nama}`)
 
 	if(nama != null){
@@ -19,7 +21,7 @@ async function receiveName(e, marker) {
 				maxHeight: 300,
 				closeButton: true,
 			}).setContent(
-				`<center>${nama} marker</center>
+				`<center>${nama} marker ${tipe}</center>
 				<center>Status: ${keadaan}</center>` // add button in the future
 			)
 		)
