@@ -3,8 +3,8 @@ import { RecBin, TwoBin, NorBin } from "./classes.js";
 /* const link = "http://localhost:3000"; */ // for dev
 const link = "https://binbeacon.onrender.com";
 
-var bound1 = L.latLng(24.962957038371627, 121.27488024265767),
-	bound2 = L.latLng(24.985034349532995, 121.2425501121096),
+var bound1 = L.latLng(25.106288100893295, 120.9759308009306),
+	bound2 = L.latLng(24.831228415449402, 121.31616523126553),
 	bound = L.latLngBounds(bound1, bound2); // to set the bounds of the map to only NEILI.
 // If user tries to go out of the bounds, it will bounce back
 
