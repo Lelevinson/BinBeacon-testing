@@ -1,7 +1,7 @@
 import { RecBin, TwoBin, NorBin } from "./classes.js";
 
-const link = "http://localhost:3000"; // for dev
-//const link = "https://binbeacon.onrender.com";
+//const link = "http://localhost:3000"; // for dev
+const link = "https://binbeacon.onrender.com";
 
 var bound1 = L.latLng(24.962957038371627, 121.27488024265767),
 	bound2 = L.latLng(24.985034349532995, 121.2425501121096),

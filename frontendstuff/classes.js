@@ -18,10 +18,8 @@ async function receiveName(e, marker) {
 				maxHeight: 300,
 				closeButton: true,
 			}).setContent(
-				`<center>This was made by</center>
-                <center>${nama}</center>
-				<center>Status is</center>
-				<center>${keadaan}</center>` // add button in the future
+				`<center>${nama} marker</center>
+				<center>Status: ${keadaan}</center>` // add button in the future
 			)
 		)
 		.openPopup();
