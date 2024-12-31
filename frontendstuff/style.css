@@ -199,6 +199,7 @@ body {
 	display: flex;
 	align-items: flex-start;
 	justify-content: center;
+	padding-top: 0.29em;
 	flex-basis: 10%;
 	/* background-color: lightblue; use this to show the position*/
 }
