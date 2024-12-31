@@ -245,8 +245,8 @@ for (let i = 0; i < buttons.length; i++) {
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 window.openNavHeader = function () {
-	document.getElementById("nav-header").style.height = "38%";
-	document.getElementById("main").style.transform = "translateY(-42%)";
+	document.getElementById("nav-header").style.height = "21%";
+	document.getElementById("main").style.transform = "translateY(-23%)";
 	document.getElementById("btn-question").classList.add("disabled");
 	document.getElementById("btn-add").classList.add("disabled");
 };
@@ -277,8 +277,8 @@ window.closeNavInfo = function () {
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 window.openNavAdd = function () {
-	document.getElementById("nav-add").style.height = "38%";
-	document.getElementById("main").style.transform = "translateY(-42%)";
+	document.getElementById("nav-add").style.height = "39%";
+	document.getElementById("main").style.transform = "translateY(-43%)";
 	document.getElementById("btn-header").classList.add("disabled");
 	document.getElementById("btn-question").classList.add("disabled");
 };
@@ -293,27 +293,36 @@ window.closeNavAdd = function () {
 
 window.storeValues = function () {
 	// Get the selected value of the first dropdown
-	var trashType = document.getElementById("trash-type").value;
+	var userName = document.getElementById("userName").value || "null"; // Default to "null" if empty
 
 	// Get the selected value of the second dropdown
+	var trashType = document.getElementById("trash-type").value;
+
+	// Get the selected value of the third dropdown
 	var trashStatus = document.getElementById("trash-status").value;
 
-	var name = null; // change in html
 	var lati = userLatLng.lat;
 	var long = userLatLng.lng;
 
 	if (trashType && trashStatus) {
 		// to ensure user to select the type and status before submitting
-		// Log the values to the console (or use them as needed)
+		// Log the values to the console
+		console.log("User Name:", userName);
 		console.log("Trash Type:", trashType);
 		console.log("Trash Status:", trashStatus);
 
 		//sending value to function -> server -> databse
-		sendMarkersTDB(name, lati, long, trashType, trashStatus);
+		sendMarkersTDB(userName, lati, long, trashType, trashStatus);
 
-		// You can now use the variables trashType and trashStatus as needed
-		// For example, you can display them in an alert:
-		alert("Trash Type: " + trashType + "\nTrash Status: " + trashStatus);
+		// displaying submitted form in alert
+		alert(
+			"Marker made by: " +
+				userName +
+				"\nTrash Type: " +
+				trashType +
+				"\nTrash Status: " +
+				trashStatus
+		);
 	} else {
 		alert("Please make sure to select both trash type and trash status.");
 	}
