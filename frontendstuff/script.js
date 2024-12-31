@@ -198,39 +198,39 @@ async function updateStatus() {
 updateStatus(); // function will be placed in html
 
 async function sendMarkersTDB(name, corx, cory, type, stts) {
-	try{
-	// corx cory type name and stts will be parameters
-	//e.preventDefault()
-	/*const dsata = {
+	try {
+		// corx cory type name and stts will be parameters
+		//e.preventDefault()
+		/*const dsata = {
 		corx: "24.963777459758134", // 24.963777459758134, 121.25707667724481
 		cory: "121.25707667724481", // tinggal implement user location
 		type: "Nor",
 		name: "YJ",
 		stts: "Full",
 	};*/
-	const dsata = {corx, cory, type, name, stts};
+		const dsata = { corx, cory, type, name, stts };
 
-	const res = await fetch(`${link}/tambah-marker-user`, {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-		},
-		body: JSON.stringify(dsata),
-	});
+		const res = await fetch(`${link}/tambah-marker-user`, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(dsata),
+		});
 
-		const data = await res.json()
+		const data = await res.json();
 
 		if (res.ok) {
 			console.log("Successaddmarker:", data);
 			alert("Success: Marker added. Please refresh.");
-		  } else {
+		} else {
 			console.error("Erroraddmarker:", data);
 			alert("Error: Failed to add marker.");
-		  }
-		} catch (error) {
-		  console.error("Error:", error);
-		  alert("Error: Failed to add marker due to a network issue.");
 		}
+	} catch (error) {
+		console.error("Error:", error);
+		alert("Error: Failed to add marker due to a network issue.");
+	}
 }
 
 // ------------------------------------------------------- OVERLAY BUTTON  -------------------------------------------------------
@@ -246,7 +246,7 @@ for (let i = 0; i < buttons.length; i++) {
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 window.openNavHeader = function () {
 	document.getElementById("nav-header").style.height = "38%";
-	document.getElementById("main").style.transform = "translateY(-38%)";
+	document.getElementById("main").style.transform = "translateY(-42%)";
 	document.getElementById("btn-question").classList.add("disabled");
 	document.getElementById("btn-add").classList.add("disabled");
 };
@@ -278,7 +278,7 @@ window.closeNavInfo = function () {
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 window.openNavAdd = function () {
 	document.getElementById("nav-add").style.height = "38%";
-	document.getElementById("main").style.transform = "translateY(-38%)";
+	document.getElementById("main").style.transform = "translateY(-42%)";
 	document.getElementById("btn-header").classList.add("disabled");
 	document.getElementById("btn-question").classList.add("disabled");
 };
@@ -307,7 +307,7 @@ window.storeValues = function () {
 	console.log("Trash Status:", trashStatus);
 
 	//sending value to function -> server -> databse
-	sendMarkersTDB(name, lati, long, trashType, trashStatus)
+	sendMarkersTDB(name, lati, long, trashType, trashStatus);
 
 	// You can now use the variables trashType and trashStatus as needed
 	// For example, you can display them in an alert:
