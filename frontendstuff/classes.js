@@ -21,8 +21,22 @@ async function receiveName(e, marker) {
 					maxHeight: 300,
 					closeButton: true,
 				}).setContent(
-					`<center>${nama} marker ${tipe}</center>
-				<center>Status: ${keadaan}</center>` // add button in the future
+					`
+					<html>
+					<center>${nama} marker ${tipe}</center>
+					<center>Status: ${keadaan}</center>
+					<label for="trash-status" class="question-text">What is the status of the trash can?</label>
+						<select id="trash-status" required>
+							<option value="" disabled selected hidden>
+								(Click to select)
+							</option>
+							<option value="Full">Full</option>
+							<option value="Halfway">Half-Full</option>
+							<option value="Empty">Empty</option>
+						</select>
+						<button class="submit-button" onclick="storeValues()">Submit</button>
+					</html>
+					` // add button in the future
 				)
 			)
 			.openPopup();
@@ -34,7 +48,21 @@ async function receiveName(e, marker) {
 					maxHeight: 300,
 					closeButton: true,
 				}).setContent(
-					`<center>Status: ${keadaan}</center>` // add button in the future
+					`
+					<html>
+					<center>Status: ${keadaan}</center>
+					<label for="trash-status" class="question-text">What is the status of the trash can?</label>
+						<select id="trash-status" required>
+							<option value="" disabled selected hidden>
+								(Click to select)
+							</option>
+							<option value="Full">Full</option>
+							<option value="Halfway">Half-Full</option>
+							<option value="Empty">Empty</option>
+						</select>
+						<button class="submit-button" onclick="storeValues()">Submit</button>
+					</html>
+					` // add button in the future
 				)
 			)
 			.openPopup();
