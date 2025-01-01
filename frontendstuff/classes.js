@@ -1,6 +1,6 @@
 //	Classes of Bins
 import { sendName } from "./script.js";
-import { updateStatus } from "./script.js";
+//import { updateStatus } from "./script.js";
 //import { updatebinstatusfunction } from "./script.js"
 
 async function receiveName(e, marker) {

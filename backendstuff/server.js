@@ -43,13 +43,16 @@ app.post("/tambah-marker-user", async (req, res) => {
 //------------------------------------------------------------------------------
 app.post("/update-status", async (req, res) => {
 	const { corx, cory, stts } = req.body;
+	console.log(corx, cory, stts);
+	console.log("Parsed values:", { corx, cory, stts });
 
 	try {
 		await renewStatus(corx, cory, stts);
 		res.json("stts anjuser received");
 	} catch (error) {
-		res.json("gbs lihat status");
-	}
+        console.error("Error during update:", error);
+        res.status(500).json({ error: "Failed to update status.", details: error });
+    }
 });
 //------------------------------------------------------------------------------
 app
@@ -96,7 +99,7 @@ const addingMarkersTDB = async (x, y, tipe, nama, stats) => {
 //------------------------------------------------------------------------------
 
 async function renewStatus(x, y, stts) {
-	//console.log("stts adalh:", stts);
+	console.log("stts adalh:", stts);
 	const { data, error } = await supabase
 		.from("markers1")
 		.update({ status: stts })

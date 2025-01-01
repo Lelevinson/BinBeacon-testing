@@ -1,6 +1,6 @@
 import { RecBin, TwoBin, NorBin } from "./classes.js";
 
-// const link = "http://localhost:3000"; // for dev
+//const link = "http://localhost:3000"; // for dev
 const link = "https://binbeacon.onrender.com";
 
 var bound1 = L.latLng(25.106288100893295, 120.9759308009306),
@@ -180,14 +180,17 @@ async function sendName(x, y) {
 }
 export { sendName };
 
-async function updateStatus(x, y, updateValue) {
+async function updateStatus() { //x, y, updateValue
 	// x and y will be parameters and will get them from classes.js
 	await fetchCoords();
-	const { data, error } = await supabase;
 
 	//var hasil = databaseArr.find(row => row.corx === x && row.cory === y);
 	//var updateValue = document.getElementById("trash-status").value;
 	//habis itu situasi ini dikirim ke html terus user bakal dikasi 2 pilihan gt
+	var x = 24.974359172634536;
+	var y = 121.26623582618292;
+	var updateValue = "Full";
+	
 	const paket = {
 		x,
 		y,
@@ -206,7 +209,8 @@ async function updateStatus(x, y, updateValue) {
 		.then((data) => console.log("Successupsas:", data))
 		.catch((error) => console.error("Error:", error));
 }
-export { updateStatus }; // function will be placed in html
+// export { updateStatus }; // function will be placed in html
+updateStatus();
 
 async function sendMarkersTDB(name, corx, cory, type, stts) {
 	try {
