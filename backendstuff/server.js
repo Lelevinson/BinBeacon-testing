@@ -43,8 +43,7 @@ app.post("/tambah-marker-user", async (req, res) => {
 //------------------------------------------------------------------------------
 app.post("/update-status", async (req, res) => {
 	const { corx, cory, stts } = req.body;
-	console.log(corx, cory, stts);
-	console.log("Parsed values:", { corx, cory, stts });
+	console.log("Parsed values of upstats:", { corx, cory, stts });
 
 	try {
 		await renewStatus(corx, cory, stts);
@@ -55,8 +54,7 @@ app.post("/update-status", async (req, res) => {
     }
 });
 //------------------------------------------------------------------------------
-app
-	.listen(port, () => {
+app.listen(port, () => {
 		console.log("running server on port:", port);
 	})
 	.on("error", (err) => {
@@ -107,8 +105,9 @@ async function renewStatus(x, y, stts) {
 		.eq("coordinate_y", y);
 
 	if (error) {
-		console.error("Error updating data:", error);
+		console.error("Supabase error:", error.message, error.details);
+		throw new Error(error.message); // Pass error to the calling function
 	} else {
-		console.log("Data updated successfully:", data.stts);
+		console.log("Database updated successfully:", data);
 	}
 }
