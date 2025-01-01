@@ -345,14 +345,12 @@ window.storeValues = function () {
 
 window.storeUpdates = function (x, y) {
 
-	var updateValue = document.getElementById("trash-status").value;
+	var updateValue = document.getElementById("status-sampah").value;
 	//if(updateValue === sm kyk value sblmnya)
 	//	then alert error
 	console.log("sampe ke stor", updateValue,x,y);
 	updateStatus(x, y, updateValue);
 }
-
-
 
 
 /*seems like i cant get the value for one of the options

@@ -24,8 +24,8 @@ async function receiveName(e, marker) {
 						<center>${nama ? `Marker of ${nama}`: ""}</center>
 						<center>Type: ${tipe} </center>
 						<center>Status: ${keadaan}</center>
-						<label for="trash-status" class="question-text">What is the status of the trash can?</label>
-							<select id="trash-status" required>
+						<label for="status-sampah" class="question-text">What is the status of the trash can?</label>
+							<select id="status-sampah" required>
 								<option value="" disabled selected hidden>
 									(Click to select)
 								</option>
