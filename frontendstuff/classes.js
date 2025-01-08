@@ -13,18 +13,19 @@ async function receiveName(e, marker) {
 	var keadaan = data.stts;
 	var tipe = data.bintype; // taro if rec then recyclable nnti disini
 	//console.log(`the coords are${x}, ${y}, name ${nama}`)
-		marker
-			.bindPopup(
-				L.popup({
-					maxWidth: 300,
-					maxHeight: 300,
-					closeButton: true,
-				}).setContent(`
-					<html>
-						<center>${nama ? `Marker of ${nama}`: ""}</center>
+	marker
+		.bindPopup(
+			L.popup({
+				maxWidth: 200,
+				maxHeight: 300,
+				closeButton: true,
+			}).setContent(`
+					<div id="popup-div">
+						<center>${nama ? `Marker of ${nama}` : ""}</center>
 						<center>Type: ${tipe} </center>
 						<center>Status: ${keadaan}</center>
-						<label for="status-sampah" class="question-text">What is the status of the trash can?</label>
+						<center>
+						<label for="status-sampah" class="popup-text">What is the status of the trash can?</label>
 							<select id="status-sampah" required>
 								<option value="" disabled selected hidden>
 									(Click to select)
@@ -33,12 +34,13 @@ async function receiveName(e, marker) {
 								<option value="Halfway">Half-Full</option>
 								<option value="Empty">Empty</option>
 							</select>
-							<button class="submit-button" onclick="storeUpdates(${x}, ${y})">Submit</button>
-					</html>
+							<button class="popup-submit-button" onclick="storeUpdates(${x}, ${y})">Submit</button>
+						</center>
+					</div>
 				`)
-			)
-			.openPopup();
-} 
+		)
+		.openPopup();
+}
 
 export class RecBin {
 	constructor(locationX, locationY, map) {
