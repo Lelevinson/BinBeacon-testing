@@ -312,7 +312,8 @@ body {
 	color: #333;
 }
 
-select,
+#trash-type,
+#trash-status,
 input[type="text"] {
 	padding: 10px;
 	font-size: 16px;
@@ -324,19 +325,22 @@ input[type="text"] {
 	transition: all 0.3s ease;
 }
 
-select:hover,
+#trash-type:hover,
+#trash-status:hover,
 input:hover {
 	border-color: #45a049;
 }
 
-select:focus,
+#trash-type:focus,
+#trash-status:focus,
 input:focus {
 	outline: none;
 	box-shadow: 0 0 5px rgba(0, 128, 0, 0.5);
 	border-color: #45a049;
 }
 
-select:invalid {
+#trash-type:invalid,
+#trash-status:invalid {
 	color: gray; /* Placeholder text color */
 }
 
@@ -358,6 +362,55 @@ option {
 
 .submit-button:hover {
 	background-color: #45a049;
+}
+
+#popup-div {
+	display: flex;
+	flex-direction: column;
+	justify-self: center;
+	align-items: center;
+	font-family: "Raleway", "Chewy", "Mogra", sans-serif;
+	font-size: 12px;
+	color: #333;
+	padding: 0;
+}
+
+#status-sampah {
+	padding: 6px;
+	font-size: 12px;
+	border: 2px solid #4caf50;
+	border-radius: 5px;
+	margin-top: 0.5em;
+	background-color: #fff;
+	color: #333;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+#status-sampah:hover {
+	border-color: #45a049;
+}
+
+#status-sampah:focus {
+	outline: none;
+	box-shadow: 0 0 5px rgba(0, 128, 0, 0.5);
+	border-color: #45a049;
+}
+
+#status-sampah:invalid {
+	color: gray; /* Placeholder text color */
+}
+
+.popup-submit-button {
+	background-color: #4caf50;
+	color: white;
+	padding: 6px 16px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 12px;
+	transition: background-color 0.3s ease;
+	margin-left: 0.5em;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
