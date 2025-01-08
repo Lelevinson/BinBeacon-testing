@@ -17,7 +17,7 @@ async function resetColumn() {
 }
 
 // Schedule the task
-cron.schedule('0 0 * * *', () => { // Every day at midnight
+cron.schedule('0 1 * * *', () => { // Every day at midnight
     console.log('resetStatus Running');
     resetColumn();
 });
