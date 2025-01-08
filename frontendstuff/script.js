@@ -238,7 +238,7 @@ async function sendMarkersTDB(name, corx, cory, type, stts) {
 
 		if (res.ok) {
 			console.log("Successaddmarker:", data);
-			alert("Success: Marker added. Please refresh.");
+			//alert("Success: Marker added. Please refresh.");
 		} else {
 			console.error("Erroraddmarker:", data);
 			alert("Error: Failed to add marker.");
