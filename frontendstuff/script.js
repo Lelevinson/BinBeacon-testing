@@ -139,7 +139,7 @@ async function sort() {
 			minZoom: 0,
 			maxZoom: 20,
 			attribution: "© StadiaMap",
-			ext: "png", //removed attributions
+			ext: "png",
 		}
 	);
 
@@ -149,7 +149,7 @@ async function sort() {
 			minZoom: 0,
 			maxZoom: 20,
 			attribution: "© StadiaMap",
-			ext: "png", //removed attributions
+			ext: "png", 
 		}
 	);
 
@@ -210,7 +210,6 @@ async function updateStatus(x, y, updateValue) {
 		console.error("Error:", error);
 	}
 }
-// export { updateStatus }; // function will be placed in html
 updateStatus();
 
 async function sendMarkersTDB(name, corx, cory, type, stts) {
@@ -333,7 +332,7 @@ window.storeValues = function () {
 
 		//sending value to function -> server -> databse
 		sendMarkersTDB(userName, lati, long, trashType, trashStatus);
-		//refreshTwo();
+		refreshTwo();
 	} else {
 		alert("Please make sure to select both trash type and trash status.");
 	}
