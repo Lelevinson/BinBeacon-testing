@@ -34,7 +34,7 @@ async function receiveName(e, marker) {
 								<option value="Halfway">Half-Full</option>
 								<option value="Empty">Empty</option>
 							</select>
-							<button class="popup-submit-button" onclick="storeUpdates(${x}, ${y})">Submit</button>
+							<button class="popup-submit-button" onclick="storeUpdates(${x}, ${y}), 	refreshPage();">Submit</button>
 						</center>
 					</div>
 				`)

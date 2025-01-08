@@ -205,7 +205,7 @@ async function updateStatus(x, y, updateValue) {
 	});
 		const data = await res.json();
 		console.log("Successupsas:", data);
-		location.reload();
+	
 	} catch (error) {
 		console.error("Error:", error);
 	}
@@ -355,4 +355,10 @@ window.storeUpdates = function (x, y) {
 	//	then alert error
 	console.log("sampe ke stor", updateValue,x,y);
 	updateStatus(x, y, updateValue);
+}
+
+window.refreshPage = async function() {
+	await updateStatus();
+
+	location.reload();
 }
