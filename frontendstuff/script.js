@@ -333,16 +333,7 @@ window.storeValues = function () {
 
 		//sending value to function -> server -> databse
 		sendMarkersTDB(userName, lati, long, trashType, trashStatus);
-
-		// displaying submitted form in alert
-		alert(
-			"Marker made by: " +
-				userName +
-				"\nTrash Type: " +
-				trashType +
-				"\nTrash Status: " +
-				trashStatus
-		);
+		refreshTwo();
 	} else {
 		alert("Please make sure to select both trash type and trash status.");
 	}
@@ -357,8 +348,12 @@ window.storeUpdates = function (x, y) {
 	updateStatus(x, y, updateValue);
 }
 
-window.refreshPage = async function() {
+window.refreshPage = async function () {
 	await updateStatus();
+	location.reload();
+}
 
+async function refreshTwo(){
+	await sendMarkersTDB();
 	location.reload();
 }
