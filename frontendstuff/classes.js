@@ -25,7 +25,7 @@ async function receiveName(e, marker) {
 						<center>Type: ${tipe} </center>
 						<center>Status: ${keadaan}</center>
 						<center>
-						<label for="status-sampah" class="popup-text">What is the status of the trash can?</label>
+						<label for="status-sampah" class="popup-text">What is the current status of the trash can?</label>
 							<select id="status-sampah" required>
 								<option value="" disabled selected hidden>
 									(Click to select)
@@ -34,7 +34,7 @@ async function receiveName(e, marker) {
 								<option value="Halfway">Half-Full</option>
 								<option value="Empty">Empty</option>
 							</select>
-							<button class="popup-submit-button" onclick="storeUpdates(${x}, ${y}), 	refreshPage();">Submit</button>
+							<button class="popup-submit-button" onclick="storeUpdates(${x}, ${y});">Submit</button>
 						</center>
 					</div>
 				`)

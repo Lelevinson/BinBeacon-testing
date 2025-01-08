@@ -347,10 +347,10 @@ window.storeUpdates = function (x, y) {
 	updateStatus(x, y, updateValue);
 }
 
-window.refreshPage = async function () {
-	await updateStatus();
-	location.reload();
-}
+// window.refreshPage = async function () {
+// 	await updateStatus();
+// 	location.reload();
+// }
 
 async function refreshTwo(){
 	await sendMarkersTDB();
