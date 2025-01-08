@@ -213,18 +213,9 @@ async function updateStatus(x, y, updateValue) {
 // export { updateStatus }; // function will be placed in html
 updateStatus();
 
-async function sendMarkersTDB(name, corx, cory, type, stts) {
+async function sendMarkersTDB(xlat, ylng, creator, kind, condition) {
 	try {
-		// corx cory type name and stts will be parameters
-		//e.preventDefault()
-		/*const dsata = {
-		corx: "24.963777459758134", // 24.963777459758134, 121.25707667724481
-		cory: "121.25707667724481", // tinggal implement user location
-		type: "Nor",
-		name: "YJ",
-		stts: "Full",
-	};*/
-		const dsata = { corx, cory, type, name, stts };
+		const dsata = { xlat, ylng, creator, kind, condition };
 
 		const res = await fetch(`${link}/tambah-marker-user`, {
 			method: "POST",
