@@ -205,6 +205,7 @@ async function updateStatus(x, y, updateValue) {
 	});
 		const data = await res.json();
 		console.log("Successupsas:", data);
+		location.reload();
 	} catch (error) {
 		console.error("Error:", error);
 	}
