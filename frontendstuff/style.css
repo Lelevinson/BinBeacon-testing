@@ -380,11 +380,12 @@ option {
 	font-size: 12px;
 	border: 2px solid #4caf50;
 	border-radius: 5px;
-	margin-top: 0.5em;
+	margin-top: 0.4em;
 	background-color: #fff;
 	color: #333;
 	cursor: pointer;
 	transition: all 0.3s ease;
+	min-width: 7em;
 }
 
 #status-sampah:hover {
@@ -411,6 +412,7 @@ option {
 	font-size: 12px;
 	transition: background-color 0.3s ease;
 	margin-left: 0.5em;
+	min-width: 6em;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */

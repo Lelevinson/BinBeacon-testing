@@ -25,7 +25,7 @@ async function receiveName(e, marker) {
 						<center>Type: ${tipe} </center>
 						<center>Status: ${keadaan}</center>
 						<center>
-						<label for="status-sampah" class="popup-text">What is the current status of the trash can?</label>
+						<label for="status-sampah" class="popup-text">What is the status of the trash bin?</label>
 							<select id="status-sampah" required>
 								<option value="" disabled selected hidden>
 									(Click to select)
