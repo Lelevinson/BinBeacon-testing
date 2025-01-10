@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<!-- Meta tags for character set and viewport settings -->
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Welcome to Bin Beacon!</title>
+
+		<!-- Link to Leaflet CSS for map styling -->
 		<link
 			rel="stylesheet"
 			href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
 			integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
 			crossorigin=""
 		/>
+		<!-- Link to custom CSS file -->
 		<link rel="stylesheet" href="frontendstuff/style.css" />
-		<!--<link rel="stylesheet" href="frontendstuff/style.css" />-->
+
+		<!-- Link to Leaflet JS for interactive maps -->
 		<script
 			src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
 			integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
 			crossorigin=""
 		></script>
-		<!--added supabase script here-->
+
+		<!-- Link to Supabase JS for database interactions -->
 		<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.0.0/dist/umd/supabase.min.js"></script>
-		<!--remove GET favicon error in console-->
+
+		<!-- Link to remove GET favicon error in console -->
 		<link rel="shortcut icon" href="#" />
 	</head>
 
 	<body>
-		<!-- side nav 1: HEADER -->
+		<!-- Side navigation for header -->
 		<div id="nav-header" class="templatenav">
 			<div class="nav-template-left">
 				<div class="container">
@@ -47,16 +54,17 @@
 				</div>
 			</div>
 		</div>
-		<!-- side nav 2: INFORMATION -->
+
+		<!-- Side navigation for information -->
 		<div id="nav-info" class="templatenav">
 			<div class="nav-template-left">
-				<!-- Information Section Content -->
 				<div class="container">
 					<div class="container-header">
 						<h2>About <span class="container-header-text">BinBeacon</span></h2>
 					</div>
 
 					<div class="info-content">
+						<!-- Introduction section -->
 						<section class="intro">
 							<h3>Website Introduction</h3>
 							<p>
@@ -71,6 +79,7 @@
 							</p>
 						</section>
 
+						<!-- Map icons and legends section -->
 						<section class="bin-legends">
 							<h3>Map Icons and Legends</h3>
 							<p>
@@ -113,6 +122,7 @@
 							</ul>
 						</section>
 
+						<!-- Key features section -->
 						<section class="features">
 							<h3>Key Features</h3>
 							<ul>
@@ -144,6 +154,7 @@
 							</ul>
 						</section>
 
+						<!-- Technologies used section -->
 						<section class="technologies">
 							<h3>Technologies Used</h3>
 							<p>The website was built using the following technologies:</p>
@@ -160,6 +171,7 @@
 							</ul>
 						</section>
 
+						<!-- About the developers section -->
 						<section class="about-developers">
 							<h3>About the Developers</h3>
 							<p>
@@ -170,6 +182,7 @@
 							</p>
 						</section>
 
+						<!-- Credits section -->
 						<section class="credits">
 							<h3>Credits</h3>
 							<p>
@@ -179,6 +192,7 @@
 							</p>
 						</section>
 
+						<!-- Contact information section -->
 						<section class="contact">
 							<h3>Contact Information</h3>
 							<p>
@@ -206,7 +220,8 @@
 				</div>
 			</div>
 		</div>
-		<!-- side nav 3: ADD MARKER -->
+
+		<!-- Side navigation for adding markers -->
 		<div id="nav-add" class="templatenav">
 			<div class="nav-template-left">
 				<div class="container">
@@ -216,7 +231,7 @@
 							<span class="container-header-text">BinBeacon</span>
 						</h2>
 					</div>
-					<!-- Question 1 -->
+					<!-- Question 1: User name input -->
 					<div class="question-container">
 						<label for="userName" class="question-text"
 							>Your name (Optional)</label
@@ -228,7 +243,7 @@
 							maxlength="15"
 						/>
 					</div>
-					<!-- Question 2 -->
+					<!-- Question 2: Trash type selection -->
 					<div class="question-container">
 						<label for="trash-type" class="question-text"
 							>What is the type of the trash bin?</label
@@ -243,7 +258,7 @@
 						</select>
 					</div>
 
-					<!-- Question 3 -->
+					<!-- Question 3: Trash status selection -->
 					<div class="question-container">
 						<label for="trash-status" class="question-text"
 							>What is the current status of the trash bin?</label
@@ -258,7 +273,7 @@
 						</select>
 					</div>
 
-					<!-- Submit Button -->
+					<!-- Submit button to store values -->
 					<button class="submit-button" onclick="storeValues()">Submit</button>
 				</div>
 			</div>
@@ -273,6 +288,7 @@
 			</div>
 		</div>
 
+		<!-- Header section with logo and title -->
 		<div id="header">
 			<img
 				src="frontendstuff/images/lighthouse-svgrepo-com.svg"
@@ -283,12 +299,15 @@
 			</p>
 		</div>
 
+		<!-- Main section with map and buttons -->
 		<div id="main">
 			<div id="map">
 				<div class="bottom-layer">
+					<!-- Button to open information navigation -->
 					<div id="btn-question" class="btn" onclick="openNavInfo()">
 						<img src="frontendstuff/images/info.svg" class="info-image" />
 					</div>
+					<!-- Button to open add marker navigation -->
 					<div
 						id="btn-add"
 						class="btn"
@@ -297,6 +316,7 @@
 					>
 						<img src="frontendstuff/images/add.svg" class="add-image" />
 					</div>
+					<!-- Button to reset map zoom -->
 					<div id="btn-reset" class="btn" data-action="reset-zoom">
 						<img
 							src="frontendstuff/images/location.svg"
@@ -306,8 +326,8 @@
 				</div>
 			</div>
 		</div>
-		<!--diganti dari <script src="script.js"></script> -tambahin module biar bisa pake fungsi import export-->
+
+		<!-- Link to main JavaScript file with module type for import/export -->
 		<script type="module" src="frontendstuff/script.js"></script>
-		<!--   <script src="frontendstuff/event.js"></script> -->
 	</body>
 </html>
