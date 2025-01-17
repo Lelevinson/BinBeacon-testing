@@ -11,8 +11,8 @@ async function receiveName(e, marker) {
 	//if(nama != null)
 	var nama = data.name;
 	var keadaan = data.stts;
-	var tipe = data.bintype;
-
+	var tipe = data.bintype; // taro if rec then recyclable nnti disini
+	//console.log(`the coords are${x}, ${y}, name ${nama}`)
 	marker
 		.bindPopup(
 			L.popup({
