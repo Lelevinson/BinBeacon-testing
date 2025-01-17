@@ -64,7 +64,9 @@ var map = L.map("map", {
 						maxWidth: 300,
 						maxHeight: 300,
 						closeButton: true,
-					}).setContent(`<center>You are here!</center>`)
+					}).setContent(
+						`<center>You are here!</center>` // add button in the future
+					)
 				)
 				.openPopup();
 		} else {
@@ -147,7 +149,7 @@ async function sort() {
 			minZoom: 0,
 			maxZoom: 20,
 			attribution: "© StadiaMap",
-			ext: "png",
+			ext: "png", 
 		}
 	);
 
@@ -185,7 +187,7 @@ async function updateStatus(x, y, updateValue) {
 	//var hasil = databaseArr.find(row => row.corx === x && row.cory === y);
 	//var updateValue = document.getElementById("trash-status").value;
 	//habis itu situasi ini dikirim ke html terus user bakal dikasi 2 pilihan gt
-
+	
 	const paket = {
 		corx: x,
 		cory: y,
@@ -193,16 +195,17 @@ async function updateStatus(x, y, updateValue) {
 	};
 
 	console.log("sampe ke upstats", updateValue);
-	try {
-		const res = await fetch(`${link}/update-status`, {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(paket),
-		});
+	try{
+	const res = await fetch(`${link}/update-status`, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(paket),
+	});
 		const data = await res.json();
 		console.log("Successupsas:", data);
+	
 	} catch (error) {
 		console.error("Error:", error);
 	}
@@ -211,7 +214,7 @@ updateStatus();
 
 async function sendMarkersTDB(name, corx, cory, type, stts) {
 	try {
-		// corx cory type name and stts will be parameters
+				// corx cory type name and stts will be parameters
 		//e.preventDefault()
 		/*const dsata = {
 		corx: "24.963777459758134", // 24.963777459758134, 121.25707667724481
@@ -259,7 +262,7 @@ for (let i = 0; i < buttons.length; i++) {
 	}
 }
 
-/* slide up the side bar from bottom */
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 window.openNavHeader = function () {
 	document.getElementById("nav-header").style.height = "21%";
 	document.getElementById("main").style.transform = "translateY(-23%)";
@@ -267,7 +270,7 @@ window.openNavHeader = function () {
 	document.getElementById("btn-add").classList.add("disabled");
 };
 
-/* slide down the side bar to bottom */
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
 window.closeNavHeader = function () {
 	document.getElementById("nav-header").style.height = "0";
 	document.getElementById("main").style.transform = "translateY(0)";
@@ -275,6 +278,7 @@ window.closeNavHeader = function () {
 	document.getElementById("btn-add").classList.remove("disabled");
 };
 
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 window.openNavInfo = function () {
 	document.getElementById("nav-info").style.height = "90%";
 	document.getElementById("main").style.transform = "translateY(-90%)";
@@ -282,6 +286,7 @@ window.openNavInfo = function () {
 	document.getElementById("btn-add").classList.add("disabled");
 };
 
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
 window.closeNavInfo = function () {
 	document.getElementById("nav-info").style.height = "0";
 	document.getElementById("main").style.transform = "translateY(0)";
@@ -289,6 +294,7 @@ window.closeNavInfo = function () {
 	document.getElementById("btn-add").classList.remove("disabled");
 };
 
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 window.openNavAdd = function () {
 	document.getElementById("nav-add").style.height = "39%";
 	document.getElementById("main").style.transform = "translateY(-43%)";
@@ -296,6 +302,7 @@ window.openNavAdd = function () {
 	document.getElementById("btn-question").classList.add("disabled");
 };
 
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
 window.closeNavAdd = function () {
 	document.getElementById("nav-add").style.height = "0";
 	document.getElementById("main").style.transform = "translateY(0)";
@@ -332,19 +339,20 @@ window.storeValues = function () {
 };
 
 window.storeUpdates = function (x, y) {
+
 	var updateValue = document.getElementById("status-sampah").value;
-	//if(updateValue === same with previous value)
+	//if(updateValue === sm kyk value sblmnya)
 	//	then alert error
-	console.log("sampe ke stor", updateValue, x, y);
+	console.log("sampe ke stor", updateValue,x,y);
 	updateStatus(x, y, updateValue);
-};
+}
 
 window.refreshPage = async function () {
 	await updateStatus();
 	location.reload();
-};
+}
 
-async function refreshTwo() {
+async function refreshTwo(){
 	await sendMarkersTDB();
 	location.reload();
 }
